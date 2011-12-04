@@ -61,31 +61,31 @@
 ;; Hippie-expand
 ;; ----------------------------------------------------------------------------
 
-(defun set-up-hippie-expand-for-elisp ()
-  (make-variable-buffer-local 'hippie-expand-try-functions-list) ;; TODO local-variable
-  (add-to-list 'hippie-expand-try-functions-list 'try-complete-lisp-symbol t)
-  (add-to-list 'hippie-expand-try-functions-list 'try-complete-lisp-symbol-partially t))
+;; (defun set-up-hippie-expand-for-elisp ()
+;;   (make-variable-buffer-local 'hippie-expand-try-functions-list) ;; TODO local-variable
+;;   (add-to-list 'hippie-expand-try-functions-list 'try-complete-lisp-symbol t)
+;;   (add-to-list 'hippie-expand-try-functions-list 'try-complete-lisp-symbol-partially t))
 
 
 ;; ----------------------------------------------------------------------------
 ;; Auto-complete tweaks for emacs-lisp mode
 ;; ----------------------------------------------------------------------------
 
-(defface ac-symbol-menu-face
-  '((t (:background "lightgray" :foreground "darkgreen")))
-  "Face for slime candidate menu."
-  :group 'auto-complete)
+;; (defface ac-symbol-menu-face
+;;   '((t (:background "lightgray" :foreground "darkgreen")))
+;;   "Face for slime candidate menu."
+;;   :group 'auto-complete)
 
-(defface ac-symbol-selection-face
-  '((t (:background "darkgreen" :foreground "white")))
-  "Face for the slime selected candidate."
-  :group 'auto-complete)
+;; (defface ac-symbol-selection-face
+;;   '((t (:background "darkgreen" :foreground "white")))
+;;   "Face for the slime selected candidate."
+;;   :group 'auto-complete)
 
-;; Modify ac-source-symbols to add colours
-(eval-after-load "auto-complete"
-  '(progn
-     (add-to-list 'ac-source-symbols '(candidate-face . ac-symbol-menu-face))
-     (add-to-list 'ac-source-symbols '(selection-face . ac-symbol-selection-face))))
+;; ;; Modify ac-source-symbols to add colours
+;; (eval-after-load "auto-complete"
+;;   '(progn
+;;      (add-to-list 'ac-source-symbols '(candidate-face . ac-symbol-menu-face))
+;;      (add-to-list 'ac-source-symbols '(selection-face . ac-symbol-selection-face))))
 
 
 ;; ----------------------------------------------------------------------------
@@ -113,9 +113,10 @@
 
 (defun smp-emacs-lisp-setup ()
   "Enable features useful when working with elisp."
+  (require 'elisp-slime-nav)
   (elisp-slime-nav-mode t)
-  (set-up-hippie-expand-for-elisp)
-  (ac-emacs-lisp-mode-setup)
+  ;; (set-up-hippie-expand-for-elisp)
+  ;; (ac-emacs-lisp-mode-setup)
   (checkdoc-minor-mode))
 
 (let* ((elispy-hooks '(emacs-lisp-mode-hook
@@ -128,12 +129,21 @@
   (dolist (hook elispy-hooks)
     (add-hook hook 'smp-emacs-lisp-setup)))
 
-
 (require 'eldoc-eval)
 
 (add-to-list 'auto-mode-alist '("\\.emacs-project$" . emacs-lisp-mode))
 
 (define-key emacs-lisp-mode-map (kbd "C-x C-a") 'pp-macroexpand-last-sexp)
+
+
+(defun pretty-lambda ()
+    (font-lock-add-keywords
+     nil `(("(\\(lambda\\)"
+            (0 (progn (compose-region (match-beginning 1) (match-end 1)
+                                      ,(decode-char 'ucs #X03BB))
+                      nil))))))
+(add-hook 'emacs-lisp-mode-hook 'pretty-lambda)
+(add-hook 'lisp-mode-hook 'pretty-lambda)
 
 
 (provide 'init-lisp)

@@ -1,4 +1,4 @@
-(load-library "haskell-site-file")
+(load "~/.emacs.d/site-lisp/haskell-mode/haskell-site-file.el")
 
 (setq haskell-program-name (executable-find "ghci"))
 (setq haskell-font-lock-symbols t)

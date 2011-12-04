@@ -20,7 +20,7 @@
 ;;----------------------------------------------------------------------------
 ;; Show a marker in the left fringe for lines not in the buffer
 ;;----------------------------------------------------------------------------
-(setq default-indicate-empty-lines t)
+(setq default-indicate-empty-lines nil)
 
 
 ;;----------------------------------------------------------------------------
@@ -31,7 +31,7 @@
 (if (fboundp 'set-scroll-bar-mode)
   (set-scroll-bar-mode nil))
 
-(setq ns-auto-hide-menu-bar t)
+(setq ns-auto-hide-menu-bar nil)
 (require 'init-maxframe)
 
 (defun adjust-opacity (frame incr)

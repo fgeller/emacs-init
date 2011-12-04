@@ -33,4 +33,12 @@
           (set-face-attribute 'default nil :height ,old-size))))))
 
 
+(set-face-attribute 'default nil
+                    :family "Inconsolata" :height 180 :weight 'normal)
+;; (assoc 'font (frame-parameters))
+;; (set-font-encoding)
+;; (set-frame-font "-apple-Inconsolata-medium-normal-normal-*-18-*-*-*-m-0-*-1")
+;; (setq default-frame-alist
+;;       '((font . "-apple-Inconsolata-medium-normal-normal-*-18-*-*-*-m-0-*-1")))
+
 (provide 'init-fonts)
