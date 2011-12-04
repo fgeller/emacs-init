@@ -14,7 +14,7 @@
 ;; Restore histories and registers after saving
 ;;----------------------------------------------------------------------------
 (setq session-save-file (expand-file-name "~/.emacs.d/.session"))
-(add-hook 'after-init-hook 'session-initialize)
+;; (add-hook 'after-init-hook 'session-initialize)
 
 ;; save a bunch of variables to the desktop file
 ;; for lists specify the len of the maximal saved data also
