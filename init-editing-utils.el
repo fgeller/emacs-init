@@ -94,8 +94,8 @@
 ;;----------------------------------------------------------------------------
 ;; Autopair quotes and parentheses
 ;;----------------------------------------------------------------------------
-;; (require 'autopair)
-;; (require 'auto-pair+)
+(require 'autopair)
+(require 'auto-pair+)
 ;; (autopair-global-mode)
 ;; (setq autopair-autowrap t)
 (electric-pair-mode)
