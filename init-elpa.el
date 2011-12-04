@@ -37,7 +37,7 @@
 ;; (require-package 'inf-ruby)
 ;; (require-package 'yari)
 ;; (require-package 'yaml-mode)
-;; (require-package 'paredit)
+(require-package 'paredit)
 ;; (require-package 'eldoc-eval)
 (require-package 'slime)
 (require-package 'slime-fuzzy)
