@@ -1,7 +1,17 @@
+(defvar ac-dictionary-directories '())
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/auto-complete/dict")
+
 (require 'auto-complete)
 (require 'auto-complete-config)
+(ac-config-default)
+
+
 (global-auto-complete-mode t)
-(setq ac-auto-start nil)
+(setq ac-stop-flymake-on-completing t)
+(setq ac-auto-start 0)
+(setq ac-delay 0.1)
+(setq ac-ignore-case 'smart) ; insensitive for lower case
+(setq ac-fuzzy-enable nil)
 (setq ac-dwim nil) ; To get pop-ups with docs even if a word is uniquely completed
 (define-key ac-completing-map (kbd "C-n") 'ac-next)
 (define-key ac-completing-map (kbd "C-p") 'ac-previous)
@@ -17,20 +27,27 @@
   (setq completion-at-point-functions '(auto-complete)))
 (add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
 
-
 (set-default 'ac-sources
-             '(ac-source-dictionary
+             '(;; ac-source-abbrev
+               ac-source-yasnippet
+               ;; ac-source-dictionary
+               ac-source-filename
                ac-source-words-in-buffer
-               ac-source-words-in-same-mode-buffers
-               ac-source-words-in-all-buffer))
+               ac-source-words-in-same-mode-buffers))
 
 (dolist (mode '(magit-log-edit-mode log-edit-mode org-mode text-mode haml-mode
                 sass-mode yaml-mode csv-mode espresso-mode haskell-mode
                 html-mode nxml-mode sh-mode smarty-mode clojure-mode
                 lisp-mode textile-mode markdown-mode tuareg-mode
-                css-mode less-css-mode))
+                css-mode less-css-mode emacs-lisp-mode python-mode))
   (add-to-list 'ac-modes mode))
 
+
+(set-face-background 'ac-candidate-face "#eee8d5")
+(set-face-foreground 'ac-candidate-face "#657b83")
+(set-face-underline 'ac-candidate-face nil)
+(set-face-background 'ac-selection-face "#268bd2")
+(set-face-foreground 'ac-selection-face "#fdf6e3")
 
 (eval-after-load "viper"
   '(progn
