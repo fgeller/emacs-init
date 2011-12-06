@@ -18,6 +18,7 @@
             (make-variable-buffer-local 'whitespace-style)
             (setq
              tab-width 2
+             python-indent 2
              indent-tabs-mode t
              whitespace-style '(face
                                 tabs
