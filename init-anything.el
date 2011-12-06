@@ -2,7 +2,7 @@
 (require 'anything-config)
 (require 'anything-match-plugin)
 
-(setq anything-input-idle-delay nil)
+(setq anything-input-idle-delay 0.01)
 
 (defun fg/anything-jump ()
   (interactive)
