@@ -2,6 +2,8 @@
 (require 'anything-config)
 (require 'anything-match-plugin)
 
+(setq anything-input-idle-delay nil)
+
 (defun fg/anything-jump ()
   (interactive)
   (anything-other-buffer
