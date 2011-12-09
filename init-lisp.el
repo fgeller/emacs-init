@@ -60,6 +60,7 @@
 ;; Highlight current sexp
 ;; ----------------------------------------------------------------------------
 
+
 ;; Prevent flickery behaviour due to hl-sexp-mode unhighlighting before each command
 (eval-after-load "hl-sexp"
   '(defadvice hl-sexp-mode (after unflicker (turn-on) activate)
@@ -74,15 +75,15 @@
 
 (defun smp-lisp-setup ()
   "Enable features useful in any lisp mode."
-  (enable-paredit-mode)
-  (hl-sexp-mode t)
+  ;; (enable-paredit-mode)
+  ;; (hl-sexp-mode t)
   (turn-on-eldoc-mode)
   (turn-on-pretty-mode))
 
 (defun smp-emacs-lisp-setup ()
   "Enable features useful when working with elisp."
   (require 'elisp-slime-nav)
-  (elisp-slime-nav-mode t)
+  ;; (elisp-slime-nav-mode t)
   ;; (set-up-hippie-expand-for-elisp)
   (ac-emacs-lisp-mode-setup)
   (checkdoc-minor-mode))
