@@ -58,6 +58,9 @@
 (setq js2-highlight-level 3)
 (setq js2-mirror-mode nil) ; conflicts with autopair
 (setq js2-mode-escape-quotes t) ; t disables
+(setq js2-mode-squeeze-spaces t)
+(setq js2-pretty-multiline-decl-indentation-p t)
+(setq js2-consistent-level-indent-inner-bracket-p t)
 
 ;; js-mode
 (setq js-indent-level preferred-javascript-indent-level)
