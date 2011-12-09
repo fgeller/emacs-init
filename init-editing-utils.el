@@ -25,11 +25,12 @@
  column-number-mode 1
  transient-mark-mode t
  goto-address-mail-face 'link
- scroll-conservatively 123)
+ scroll-conservatively 0)
 
 (add-hook 'find-file-hooks 'goto-address-prog-mode)
 ;; (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
-;; (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+
 (setq whitespace-style
       '(face
         tabs
@@ -49,8 +50,6 @@
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-
-
 ;;----------------------------------------------------------------------------
 ;; auto-save game
 ;;----------------------------------------------------------------------------
@@ -62,9 +61,9 @@
   (string-match "^#.*#$" (file-name-nondirectory filename)))
 (defun make-auto-save-file-name ()
   (concat autosave-dir
-      (if buffer-file-name
-          (concat "#" (file-name-nondirectory buffer-file-name) "#")
-        (expand-file-name (concat "#%" (buffer-name) "#")))))
+          (if buffer-file-name
+              (concat "#" (file-name-nondirectory buffer-file-name) "#")
+            (expand-file-name (concat "#%" (buffer-name) "#")))))
 (defvar backup-dir (concat "~/.emacs.d/saved"))
 (setq backup-directory-alist (list (cons "." backup-dir)))
 (setq delete-old-versions nil)
@@ -95,10 +94,12 @@
 ;; Autopair quotes and parentheses
 ;;----------------------------------------------------------------------------
 (require 'autopair)
-(require 'auto-pair+)
-;; (autopair-global-mode)
-;; (setq autopair-autowrap t)
-(electric-pair-mode)
+;; (require 'auto-pair+)
+(autopair-global-mode)
+
+(setq autopair-autowrap t)
+;; (setq autopair-goto-char-after-region-wrap 2)
+(electric-pair-mode -1)
 (electric-indent-mode)
 
 ;;----------------------------------------------------------------------------
@@ -120,23 +121,6 @@
 ;;----------------------------------------------------------------------------
 (cua-selection-mode t)                  ; for rectangles, CUA is nice
 
-
-;;----------------------------------------------------------------------------
-;; Handy key bindings
-;;----------------------------------------------------------------------------
-;; To be able to M-x without meta
-;; (global-set-key (kbd "C-x C-m") 'execute-extended-command)
-
-;; Vimmy alternatives to M-^ and C-u M-^
-(global-set-key (kbd "C-c j") 'join-line)
-(global-set-key (kbd "C-c J") (lambda () (interactive) (join-line 1)))
-
-(global-set-key (kbd "M-T") 'transpose-lines)
-(global-set-key (kbd "C-.") 'set-mark-command)
-(global-set-key (kbd "C-x C-.") 'pop-global-mark)
-(global-set-key (kbd "C-;") 'iy-go-to-char)
-(global-set-key (kbd "C-\,") 'iy-go-to-char-backward)
-
 (defun duplicate-line ()
   (interactive)
   (save-excursion
@@ -146,12 +130,6 @@
       (move-end-of-line 1)
       (newline)
       (insert line-text))))
-
-(global-set-key (kbd "C-c p") 'duplicate-line)
-
-;; Train myself to use M-f and M-b instead
-(global-unset-key [M-left])
-(global-unset-key [M-right])
 
 
 ;;----------------------------------------------------------------------------
@@ -242,30 +220,6 @@ the character typed."
   (cond ((looking-at "\\s\(") (forward-list 1) (backward-char 1))
         ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
         (t                    (self-insert-command (or arg 1))) ))
-
-(defvar nc-minor-mode-map (make-keymap)
-  "nc-minor-mode keymap.")
-(let ((f (lambda (m)
-           `(lambda () (interactive)
-              (message (concat "No! use " ,m " instead."))))))
-  (dolist (l '(("<left>" . "C-b") ("<right>" . "C-f") ("<up>" . "C-p")
-               ("<down>" . "C-n")
-               ("<C-left>" . "M-b") ("<C-right>" . "M-f") ("<C-up>" . "M-{")
-               ("<C-down>" . "M-}")
-               ("<M-left>" . "M-b") ("<M-right>" . "M-f") ("<M-up>" . "M-{")
-               ("<M-down>" . "M-}")
-               ("<delete>" . "C-d") ("<C-delete>" . "M-d")
-               ("<M-delete>" . "M-d") ("<next>" . "C-v") ("<C-next>" . "M-x <")
-               ("<prior>" . "M-v") ("<C-prior>" . "M-x >")
-               ("<home>" . "C-a") ("<C-home>" . "M->")
-               ("<C-home>" . "M-<") ("<end>" . "C-e") ("<C-end>" . "M->")))
-    (define-key nc-minor-mode-map
-      (read-kbd-macro (car l)) (funcall f (cdr l)))))
-(define-minor-mode nc-minor-mode
-  "A minor mode that disables the arrow-keys, pg-up/down, delete
-  and backspace."  t " nc"
-  'nc-minor-mode-map :global t)
-(nc-minor-mode 0)
 
 
 ;; this uses `forward-whitespace' from `thingatpt.el'
