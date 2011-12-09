@@ -25,6 +25,8 @@
  column-number-mode 1
  transient-mark-mode t
  goto-address-mail-face 'link
+ revert-without-query '(".*")
+ align-text-modes (quote (text-mode outline-mode org-mode))
  scroll-conservatively 0)
 
 (add-hook 'find-file-hooks 'goto-address-prog-mode)
