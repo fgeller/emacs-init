@@ -16,9 +16,9 @@
             (make-variable-buffer-local 'whitespace-style)
             (setq
              tab-width 2
+             js2-basic-offset 2
              indent-tabs-mode t
              whitespace-style '(face tabs spaces trailing lines space-before-tab::tab newline indentation::tab empty space-after-tab::tab space-mark tab-mark newline-mark))))
-
 (add-hook 'js-mode-hook
           (lambda ()
             (make-variable-buffer-local 'tab-width)
@@ -48,11 +48,16 @@
 (setq js2-use-font-lock-faces t)
 (setq js2-mode-must-byte-compile nil)
 (setq js2-basic-offset preferred-javascript-indent-level)
-(setq js2-indent-on-enter-key nil)
-(setq js2-auto-indent-p nil)
+(setq js2-indent-on-enter-key t)
+(setq js2-auto-indent-p t)
+(setq js2-enter-indents-newline t)
 (setq js2-bounce-indent-p t)
-(unless *vi-emulation-support-enabled*
-    (setq js2-mirror-mode t))
+(setq js2-auto-insert-catch-block t)
+(setq js2-cleanup-whitespace nil)
+(setq js2-global-externs '(Ext console))
+(setq js2-highlight-level 3)
+(setq js2-mirror-mode nil) ; conflicts with autopair
+(setq js2-mode-escape-quotes t) ; t disables
 
 ;; js-mode
 (setq js-indent-level preferred-javascript-indent-level)
@@ -114,16 +119,16 @@
 (require 'js-comint)
 (setq inferior-js-program-command "/usr/local/bin/node")
 
-;; (setq inferior-js-mode-hook
-;;       (lambda ()
-;;         ;; We like nice colors
-;;         (ansi-color-for-comint-mode-on)
-;;         ;; Deal with some prompt nonsense
-;;         (add-to-list 'comint-preoutput-filter-functions
-;;                      (lambda (output)
-;;                        (replace-regexp-in-string
-;;						".*1G\.\.\..*5G" "..."
-;;						(replace-regexp-in-string ".*1G.*3G" "&gt;" output))))))
+(setq inferior-js-mode-hook
+      (lambda ()
+        ;; We like nice colors
+        (ansi-color-for-comint-mode-on)
+        ;; Deal with some prompt nonsense
+        (add-to-list 'comint-preoutput-filter-functions
+                     (lambda (output)
+                       (replace-regexp-in-string
+                        ".*1G\.\.\..*5G" "..."
+                        (replace-regexp-in-string ".*1G.*3G" "> " output))))))
 
 
 (provide 'init-javascript)
