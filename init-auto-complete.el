@@ -41,11 +41,4 @@
   (add-to-list 'ac-modes mode))
 
 
-(set-face-background 'ac-candidate-face "#eee8d5")
-(set-face-foreground 'ac-candidate-face "#657b83")
-(set-face-underline 'ac-candidate-face nil)
-(set-face-background 'ac-selection-face "#268bd2")
-(set-face-foreground 'ac-selection-face "#fdf6e3")
-
-
 (provide 'init-auto-complete)
