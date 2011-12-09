@@ -3,12 +3,10 @@
 
 (require 'auto-complete)
 (require 'auto-complete-config)
-(ac-config-default)
-
 
 (global-auto-complete-mode t)
 (setq ac-stop-flymake-on-completing t)
-(setq ac-auto-start 0)
+(setq ac-auto-start 2)
 (setq ac-delay 0.1)
 (setq ac-ignore-case 'smart) ; insensitive for lower case
 (setq ac-fuzzy-enable nil)
@@ -16,11 +14,12 @@
 (define-key ac-completing-map (kbd "C-n") 'ac-next)
 (define-key ac-completing-map (kbd "C-p") 'ac-previous)
 
+
 ;;----------------------------------------------------------------------------
 ;; Use Emacs' built-in TAB completion hooks to trigger AC (Emacs >= 23.2)
 ;;----------------------------------------------------------------------------
-;; (setq tab-always-indent 'complete)  ;; use 'complete when auto-complete is disabled
-;; (add-to-list 'completion-styles 'initials t)
+(setq tab-always-indent 'complete)  ;; use 'complete when auto-complete is disabled
+(add-to-list 'completion-styles 'initials t)
 
 ;; hook AC into completion-at-point
 ;; (defun set-auto-complete-as-completion-at-point-function ()
@@ -28,9 +27,8 @@
 ;; (add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
 
 (set-default 'ac-sources
-             '(;; ac-source-abbrev
-               ac-source-yasnippet
-               ;; ac-source-dictionary
+             '(ac-source-yasnippet
+               ac-source-dictionary
                ac-source-filename
                ac-source-words-in-buffer
                ac-source-words-in-same-mode-buffers))
@@ -48,18 +46,6 @@
 (set-face-underline 'ac-candidate-face nil)
 (set-face-background 'ac-selection-face "#268bd2")
 (set-face-foreground 'ac-selection-face "#fdf6e3")
-
-(eval-after-load "viper"
-  '(progn
-     (define-key ac-completing-map (kbd "C-n") 'dabbrev-expand)
-     (define-key ac-completing-map (kbd "C-p") 'dabbrev-expand)
-     (define-key ac-completing-map viper-ESC-key 'viper-intercept-ESC-key)))
-
-;; Exclude very large buffers from dabbrev
-(defun smp-dabbrev-friend-buffer (other-buffer)
-  (< (buffer-size other-buffer) (* 1 1024 1024)))
-
-(setq dabbrev-friend-buffer-function 'smp-dabbrev-friend-buffer)
 
 
 (provide 'init-auto-complete)
