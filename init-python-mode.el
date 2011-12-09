@@ -20,6 +20,7 @@
              tab-width 2
              python-indent 2
              indent-tabs-mode t
+             python-guess-indent nil
              whitespace-style '(face
                                 tabs
                                 spaces
