@@ -18,9 +18,13 @@
       org-agenda-files `(,org-directory)
       org-fast-tag-selection-single-key 'expert
       org-tags-column 80
-      org-directory "~/Dropbox/org"
       initial-major-mode 'org-mode
-      org-default-notes-file (concat org-directory "/Notes.org"))
+      org-default-notes-file (concat org-directory "/Notes.org")
+      org-footnote-auto-label (quote plain)
+      org-hide-emphasis-markers t
+      org-hide-leading-stars t
+      org-refile-targets '((org-agenda-files :maxlevel . 5))
+      org-src-fontify-natively t)
 
 
 ; Refile targets include this file and any file contributing to the agenda - up to 5 levels deep
