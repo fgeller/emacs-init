@@ -16,6 +16,7 @@
             (make-variable-buffer-local 'tab-width)
             (make-variable-buffer-local 'indent-tabs-mode)
             (make-variable-buffer-local 'whitespace-style)
+            (add-hook 'before-save-hook 'whitespace-cleanup nil 'local)
             (setq
              tab-width 2
              python-indent 2

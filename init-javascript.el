@@ -14,6 +14,7 @@
             (make-variable-buffer-local 'tab-width)
             (make-variable-buffer-local 'indent-tabs-mode)
             (make-variable-buffer-local 'whitespace-style)
+            (add-hook 'before-save-hook 'whitespace-cleanup nil 'local)
             (setq
              tab-width 2
              js2-basic-offset 2
@@ -24,6 +25,7 @@
             (make-variable-buffer-local 'tab-width)
             (make-variable-buffer-local 'indent-tabs-mode)
             (make-variable-buffer-local 'whitespace-style)
+            (add-hook 'before-save-hook 'whitespace-cleanup nil 'local)
             (setq
              tab-width 2
              indent-tabs-mode t
@@ -53,9 +55,9 @@
 (setq js2-enter-indents-newline t)
 (setq js2-bounce-indent-p t)
 (setq js2-auto-insert-catch-block t)
-(setq js2-cleanup-whitespace nil)
+(setq js2-cleanup-whitespace t)
 (setq js2-global-externs '(Ext console))
-(setq js2-highlight-level 3)
+(setq js2-highlight-level 2)
 (setq js2-mirror-mode nil) ; conflicts with autopair
 (setq js2-mode-escape-quotes t) ; t disables
 (setq js2-mode-squeeze-spaces t)
