@@ -76,7 +76,7 @@
 (defun smp-lisp-setup ()
   "Enable features useful in any lisp mode."
   ;; (enable-paredit-mode)
-  ;; (hl-sexp-mode t)
+  (hl-sexp-mode t)
   (turn-on-eldoc-mode)
   (turn-on-pretty-mode))
 
