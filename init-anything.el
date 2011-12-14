@@ -54,7 +54,8 @@
     (call-interactively 'anything-do-grep)))
 
 
-(ac-mode)
+(setq anything-ff-auto-update-initial-value nil)
+(ac-mode -1)
 
 
 (provide 'init-anything)
