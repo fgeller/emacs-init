@@ -48,8 +48,6 @@
         tab-mark
         newline-mark))
 
-(add-hook 'before-save-hook 'whitespace-cleanup)
-
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 ;;----------------------------------------------------------------------------
@@ -102,7 +100,7 @@
 (setq autopair-autowrap t)
 ;; (setq autopair-goto-char-after-region-wrap 2)
 (electric-pair-mode -1)
-(electric-indent-mode)
+(electric-indent-mode -1)
 
 ;;----------------------------------------------------------------------------
 ;; Fix per-window memory of buffer point positions
