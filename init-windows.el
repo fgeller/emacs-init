@@ -36,5 +36,6 @@
 (global-set-key "\C-x|" 'split-window-horizontally-instead)
 (global-set-key "\C-x_" 'split-window-vertically-instead)
 
+(setq default-frame-alist '((vertical-scroll-bars) (left-fringe . 5) (right-fringe . 0)))
 
 (provide 'init-windows)
