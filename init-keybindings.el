@@ -1,23 +1,23 @@
 (defvar nc-minor-mode-map (make-keymap)
-	"nc-minor-mode keymap.")
+  "nc-minor-mode keymap.")
 (let ((f (lambda (m)
-					 `(lambda () (interactive)
-							(message (concat "No! use " ,m " instead."))))))
-	(dolist (l '(("<left>" . "C-b") ("<right>" . "C-f") ("<up>" . "C-p")
-							 ("<down>" . "C-n")
-							 ("<C-left>" . "M-b") ("<C-right>" . "M-f") ("<C-up>" . "M-{")
-							 ("<C-down>" . "M-}")
-							 ("<M-left>" . "M-b") ("<M-right>" . "M-f") ("<M-up>" . "M-{")
-							 ("<M-down>" . "M-}")
-							 ("<delete>" . "C-d") ("<C-delete>" . "M-d")
-							 ("<M-delete>" . "M-d") ("<next>" . "C-v") ("<C-next>" . "M-x <")
-							 ("<prior>" . "M-v") ("<C-prior>" . "M-x >")
-							 ("<home>" . "C-a") ("<C-home>" . "M->")
-							 ("<C-home>" . "M-<") ("<end>" . "C-e") ("<C-end>" . "M->")))
-		(define-key nc-minor-mode-map
-			(read-kbd-macro (car l)) (funcall f (cdr l)))))
+           `(lambda () (interactive)
+              (message (concat "No! use " ,m " instead."))))))
+  (dolist (l '(("<left>" . "C-b") ("<right>" . "C-f") ("<up>" . "C-p")
+               ("<down>" . "C-n")
+               ("<C-left>" . "M-b") ("<C-right>" . "M-f") ("<C-up>" . "M-{")
+               ("<C-down>" . "M-}")
+               ("<M-left>" . "M-b") ("<M-right>" . "M-f") ("<M-up>" . "M-{")
+               ("<M-down>" . "M-}")
+               ("<delete>" . "C-d") ("<C-delete>" . "M-d")
+               ("<M-delete>" . "M-d") ("<next>" . "C-v") ("<C-next>" . "M-x <")
+               ("<prior>" . "M-v") ("<C-prior>" . "M-x >")
+               ("<home>" . "C-a") ("<C-home>" . "M->")
+               ("<C-home>" . "M-<") ("<end>" . "C-e") ("<C-end>" . "M->")))
+    (define-key nc-minor-mode-map
+      (read-kbd-macro (car l)) (funcall f (cdr l)))))
 (define-minor-mode nc-minor-mode
-	"A minor mode that disables the arrow-keys, pg-up/down, delete
+  "A minor mode that disables the arrow-keys, pg-up/down, delete
 	and backspace."  t " nc"
 	'nc-minor-mode-map :global t)
 (nc-minor-mode 0)
@@ -36,7 +36,7 @@
 
 (global-unset-key "\C-l")
 (defvar ctl-l-map (make-keymap)
-		 "Keymap for local bindings and functions, prefixed by (^L)")
+  "Keymap for local bindings and functions, prefixed by (^L)")
 (define-key global-map "\C-l" 'Control-L-prefix)
 (fset 'Control-L-prefix ctl-l-map)
 
@@ -89,11 +89,10 @@
 (define-key ctl-l-map "h\S-tab" 'icicle-complete-keys)
 (define-key ctl-l-map "k"		'kill-whole-line)
 (define-key ctl-l-map "l"		'goto-line)
-(define-key ctl-l-map "vg"		'magit-status)
-(define-key ctl-l-map "vh"		'monky-status)
 (define-key ctl-l-map "n"		'notmuch)
 (define-key ctl-l-map "ma"		'auto-complete-mode)
 (define-key ctl-l-map "mf"		'flymake-mode)
+(define-key ctl-l-map "ml"		'lighthouse-mode)
 (define-key ctl-l-map "mr"		'auto-revert-mode)
 (define-key ctl-l-map "mw"		'whitespace-mode)
 (define-key ctl-l-map "of"		'org-footnote-action)
@@ -102,6 +101,10 @@
 (define-key ctl-l-map "r"		'revert-buffer)
 (define-key ctl-l-map "ui"		'ucs-insert)
 (define-key ctl-l-map "U"		'browse-url)
+(define-key ctl-l-map "v="		'vc-diff)
+(define-key ctl-l-map "vd"		'vc-dir)
+(define-key ctl-l-map "vg"		'vc-annotate)
+(define-key ctl-l-map "vv"		'vc-next-action)
 (define-key ctl-l-map "xx"		'execute-extended-command)
 (define-key ctl-l-map "xb"		'eval-buffer)
 (define-key ctl-l-map "xe"		'eval-last-sexp)
@@ -125,6 +128,18 @@
 (global-set-key (kbd "M-F") 'forward-whitespace)
 (global-set-key (kbd "M-B") 'fg/backward-whitespace)
 
-(global-set-key (kbd "C-`") 'flymake-goto-next-error)
+(global-set-key (kbd "C-`") 'other-window)
+
+(when *is-a-mac*
+  (setq mac-command-modifier 'none)
+  (setq mac-option-modifier 'meta)
+  (setq default-input-method "MacOSX")
+  ;; Make mouse wheel / trackpad scrolling less jerky
+  (setq mouse-wheel-scroll-amount '(0.0001)))
+
+(when *is-cocoa-emacs*
+  ;; Woohoo!!
+  (global-set-key (kbd "M-`") 'ns-next-frame)
+  (global-set-key (kbd "M-ˍ") 'ns-do-hide-others))
 
 (provide 'init-keybindings)
