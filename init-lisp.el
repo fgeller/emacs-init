@@ -76,12 +76,13 @@
 (defun smp-lisp-setup ()
   "Enable features useful in any lisp mode."
   (make-variable-buffer-local 'whitespace-style)
-  (setq whitespace-style '(face tabs spaces trailing lines space-before-tab newline indentation empty space-after-tab space-mark tab-mark newline-mark))
+  (setq whitespace-style '(face tabs spaces trailing lines space-before-tab::space newline indentation::space empty space-after-tab::space space-mark tab-mark newline-mark))
   (add-hook 'before-save-hook 'whitespace-cleanup nil 'local)
   (enable-paredit-mode)
   (hl-sexp-mode t)
   (turn-on-eldoc-mode)
   (turn-on-pretty-mode))
+
 
 (defun smp-emacs-lisp-setup ()
   "Enable features useful when working with elisp."
@@ -91,11 +92,8 @@
   (ac-emacs-lisp-mode-setup)
   (checkdoc-minor-mode))
 
-(let* ((elispy-hooks '(emacs-lisp-mode-hook
-                       ielm-mode-hook))
-       (lispy-hooks (append elispy-hooks '(lisp-mode-hook
-                                           inferior-lisp-mode-hook
-                                           lisp-interaction-mode-hook))))
+(let* ((elispy-hooks '(emacs-lisp-mode-hook ielm-mode-hook))
+       (lispy-hooks (append elispy-hooks '(lisp-mode-hook inferior-lisp-mode-hook lisp-interaction-mode-hook))))
   (dolist (hook lispy-hooks)
     (add-hook hook 'smp-lisp-setup))
   (dolist (hook elispy-hooks)
