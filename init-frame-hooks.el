@@ -13,5 +13,4 @@
 
 (add-hook 'after-make-frame-functions 'run-after-make-frame-hooks)
 
-
 (provide 'init-frame-hooks)
