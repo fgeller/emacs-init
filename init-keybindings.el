@@ -104,6 +104,7 @@
 (define-key ctl-l-map "v="		'vc-diff)
 (define-key ctl-l-map "vd"		'vc-dir)
 (define-key ctl-l-map "vg"		'vc-annotate)
+(define-key ctl-l-map "vl"		'vc-print-log)
 (define-key ctl-l-map "vu"		'vc-revert)
 (define-key ctl-l-map "vv"		'vc-next-action)
 (define-key ctl-l-map "xx"		'execute-extended-command)
