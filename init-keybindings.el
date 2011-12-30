@@ -18,8 +18,8 @@
       (read-kbd-macro (car l)) (funcall f (cdr l)))))
 (define-minor-mode nc-minor-mode
   "A minor mode that disables the arrow-keys, pg-up/down, delete
-	and backspace."  t " nc"
-	'nc-minor-mode-map :global t)
+        and backspace."  t " nc"
+        'nc-minor-mode-map :global t)
 (nc-minor-mode 0)
 
 ;; Train myself to use M-f and M-b instead
