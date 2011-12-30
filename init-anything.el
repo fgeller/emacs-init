@@ -9,6 +9,7 @@
   (anything-other-buffer
    '(anything-c-source-buffers
      anything-c-source-recentf
+     anything-c-source-bookmarks
      fg/anything-c-source-file-search)
    " *fg/anything-jump*"))
 
