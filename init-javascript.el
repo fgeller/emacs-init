@@ -53,7 +53,7 @@
 (setq js2-indent-on-enter-key t)
 (setq js2-auto-indent-p t)
 (setq js2-enter-indents-newline t)
-(setq js2-bounce-indent-p t)
+(setq js2-bounce-indent-p nil)
 (setq js2-auto-insert-catch-block t)
 (setq js2-cleanup-whitespace t)
 (setq js2-global-externs '(Ext console))
