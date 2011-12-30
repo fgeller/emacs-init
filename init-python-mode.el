@@ -17,6 +17,8 @@
             (make-variable-buffer-local 'indent-tabs-mode)
             (make-variable-buffer-local 'whitespace-style)
             (add-hook 'before-save-hook 'whitespace-cleanup nil 'local)
+            (imenu-add-menubar-index)
+            (hs-minor-mode t)
             (setq
              tab-width 2
              python-indent 2
