@@ -74,12 +74,11 @@
 ;; ----------------------------------------------------------------------------
 
 (defun smp-lisp-setup ()
-  "Enable features useful in any lisp mode."
+  "Enable features useful in any Lisp mode."
   (make-variable-buffer-local 'whitespace-style)
   (setq whitespace-style '(face tabs spaces trailing lines space-before-tab::space newline indentation::space empty space-after-tab::space space-mark tab-mark newline-mark))
   (add-hook 'before-save-hook 'whitespace-cleanup nil 'local)
   (enable-paredit-mode)
-  (hl-sexp-mode t)
   (turn-on-eldoc-mode)
   (turn-on-pretty-mode))
 
