@@ -1,8 +1,8 @@
 (defcustom preferred-javascript-mode 'js2-mode
-    "Javascript mode to use for .js files"
-    :type 'symbol
-    :group 'programming
-    :options '(js2-mode js-mode))
+  "Javascript mode to use for .js files"
+  :type 'symbol
+  :group 'programming
+  :options '(js2-mode js-mode))
 (defvar preferred-mmm-javascript-mode 'js-mode)
 (defvar preferred-javascript-indent-level 2)
 
@@ -39,12 +39,12 @@
 ;;                                   collect entry)))
 
 (add-to-list 'auto-mode-alist
-                         `("\\.js$" . ,preferred-javascript-mode))
+             `("\\.js$" . ,preferred-javascript-mode))
 
 ;; On-the-fly syntax checking
 (eval-after-load "js"
-    '(progn
-         (add-hook 'js-mode-hook 'flymake-jslint-init)))
+  '(progn
+     (add-hook 'js-mode-hook 'flymake-jslint-init)))
 
 ;; js2-mode
 (setq js2-use-font-lock-faces t)
@@ -73,53 +73,49 @@
 
 ;; MMM submode regions in html
 (eval-after-load "mmm-vars"
-    `(progn
-         (mmm-add-group
-            'html-js
-            '((js-script-cdata
-                 :submode ,preferred-mmm-javascript-mode
-                 :face mmm-code-submode-face
-                 :front "<script[^>]*>[ \t\n]*\\(//\\)?<!\\[CDATA\\[[ \t]*\n?"
-                 :back "[ \t]*\\(//\\)?]]>[ \t\n]*</script>"
-                 :insert ((?j js-tag nil @ "<script language=\"JavaScript\">"
-                                            @ "\n" _ "\n" @ "</script>" @)))
-                (js-script
-                 :submode ,preferred-mmm-javascript-mode
-                 :face mmm-code-submode-face
-                 :front "<script[^>]*>[ \t]*\n?"
-                 :back "[ \t]*</script>"
-                 :insert ((?j js-tag nil @ "<script language=\"JavaScript\">"
-                                            @ "\n" _ "\n" @ "</script>" @)))
-                (js-inline
-                 :submode ,preferred-mmm-javascript-mode
-                 :face mmm-code-submode-face
-                 :front "on\w+=\""
-                 :back "\"")))
-         (dolist (mode (list 'html-mode 'nxml-mode))
-             (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?$" 'html-js))))
+  `(progn
+     (mmm-add-group
+      'html-js
+      '((js-script-cdata
+         :submode ,preferred-mmm-javascript-mode
+         :face mmm-code-submode-face
+         :front "<script[^>]*>[ \t\n]*\\(//\\)?<!\\[CDATA\\[[ \t]*\n?"
+         :back "[ \t]*\\(//\\)?]]>[ \t\n]*</script>"
+         :insert ((?j js-tag nil @ "<script language=\"JavaScript\">"
+                      @ "\n" _ "\n" @ "</script>" @)))
+        (js-script
+         :submode ,preferred-mmm-javascript-mode
+         :face mmm-code-submode-face
+         :front "<script[^>]*>[ \t]*\n?"
+         :back "[ \t]*</script>"
+         :insert ((?j js-tag nil @ "<script language=\"JavaScript\">"
+                      @ "\n" _ "\n" @ "</script>" @)))
+        (js-inline
+         :submode ,preferred-mmm-javascript-mode
+         :face mmm-code-submode-face
+         :front "on\w+=\""
+         :back "\"")))
+     (dolist (mode (list 'html-mode 'nxml-mode))
+       (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?$" 'html-js))))
 
 (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
 (eval-after-load "coffee-mode"
-    `(setq coffee-js-mode preferred-javascript-mode
-                 coffee-tab-width preferred-javascript-indent-level))
+  `(setq coffee-js-mode preferred-javascript-mode
+         coffee-tab-width preferred-javascript-indent-level))
 
 (add-hook 'coffee-mode-hook 'flymake-coffee-load)
 
 
 (setq inferior-js-program-command "/usr/local/bin/node")
 (defun add-inferior-js-keys ()
-    (local-set-key "\C-x\C-e" 'js-send-last-sexp)
-    (local-set-key "\C-\M-x" 'js-send-last-sexp-and-go)
-    (local-set-key "\C-cb" 'js-send-buffer)
-    (local-set-key "\C-c\C-b" 'js-send-buffer-and-go)
-    (local-set-key "\C-cl" 'js-load-file-and-go))
+  (local-set-key "\C-x\C-e" 'js-send-last-sexp)
+  (local-set-key "\C-\M-x" 'js-send-last-sexp-and-go)
+  (local-set-key "\C-cb" 'js-send-buffer)
+  (local-set-key "\C-c\C-b" 'js-send-buffer-and-go)
+  (local-set-key "\C-cl" 'js-load-file-and-go))
 (add-hook 'js2-mode-hook 'add-inferior-js-keys)
 (add-hook 'js-mode-hook 'add-inferior-js-keys)
 
-(require 'flymake-jslint)
-(setq lintnode-location "~/.emacs.d/site-lisp/lintnode")
-(setq lintnode-jslint-excludes '())
-(add-hook 'js2-mode-hook (lambda () (lintnode-hook)))
 
 (require 'js-comint)
 (setq inferior-js-program-command "/usr/local/bin/node")
