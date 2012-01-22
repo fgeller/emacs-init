@@ -1,6 +1,7 @@
 ;;----------------------------------------------------------------------------
 ;; Set load path
 ;;----------------------------------------------------------------------------
+(eval-when-compile (require 'cl))
 (if (fboundp 'normal-top-level-add-to-load-path)
     (let* ((my-lisp-dir "~/.emacs.d/site-lisp/")
            (default-directory my-lisp-dir))
@@ -11,6 +12,13 @@
                      unless (string-match "^\\." dir)
                      collecting (expand-file-name dir))
                load-path)))))
+
+
+;;----------------------------------------------------------------------------
+;; Ensure we're freshly byte-compiled
+;;----------------------------------------------------------------------------
+(require 'bytecomp)
+(byte-recompile-directory "~/.emacs.d/site-lisp" 0)
 
 
 ;;----------------------------------------------------------------------------
@@ -65,8 +73,7 @@ source file under ~/.emacs.d/site-lisp/name/"
 (defun refresh-site-lisp-submodules ()
   (interactive)
   (message "Updating site-lisp git submodules")
-  (shell-command "cd ~/.emacs.d && git submodule foreach 'git pull' &" "*site-lisp-submodules*")
-  (byte-recompile-directory "~/.emacs.d/site-lisp"))
+  (shell-command "cd ~/.emacs.d && git submodule foreach 'git pull' &" "*site-lisp-submodules*"))
 
 ;;----------------------------------------------------------------------------
 ;; Download these upstream libs

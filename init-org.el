@@ -98,7 +98,7 @@
      tags "ARCHIVE_TIME>=\"<-1w>\""
      ((org-agenda-archives-mode t)))))
 
-(eval-after-load "org"
+(eval-after-load 'org
   '(progn
      (require 'org-exp)
      (require 'org-clock)

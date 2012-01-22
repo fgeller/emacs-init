@@ -42,9 +42,9 @@
              `("\\.js$" . ,preferred-javascript-mode))
 
 ;; On-the-fly syntax checking
-(eval-after-load "js"
-  '(progn
-     (add-hook 'js-mode-hook 'flymake-jslint-init)))
+(eval-after-load 'js
+  '(add-hook 'js-mode-hook 'flymake-jslint-load))
+
 
 ;; js2-mode
 (setq js2-use-font-lock-faces t)
@@ -72,7 +72,7 @@
 
 
 ;; MMM submode regions in html
-(eval-after-load "mmm-vars"
+(eval-after-load 'mmm-vars
   `(progn
      (mmm-add-group
       'html-js
@@ -99,7 +99,7 @@
        (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?$" 'html-js))))
 
 (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
-(eval-after-load "coffee-mode"
+(eval-after-load 'coffee-mode
   `(setq coffee-js-mode preferred-javascript-mode
          coffee-tab-width preferred-javascript-indent-level))
 

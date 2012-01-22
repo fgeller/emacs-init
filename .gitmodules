@@ -25,9 +25,6 @@
 [submodule "site-lisp/lively"]
 	path = site-lisp/lively
 	url = https://github.com/emacsmirror/lively.git
-[submodule "site-lisp/pointback"]
-	path = site-lisp/pointback
-	url = https://github.com/emacsmirror/pointback.git
 [submodule "site-lisp/ac-dabbrev"]
 	path = site-lisp/ac-dabbrev
 	url = https://github.com/emacsmirror/ac-dabbrev.git
@@ -46,9 +43,6 @@
 [submodule "site-lisp/flymake-python-pyflakes"]
 	path = site-lisp/flymake-python-pyflakes
 	url = https://github.com/purcell/flymake-python-pyflakes.git
-[submodule "site-lisp/external-abook"]
-	path = site-lisp/external-abook
-	url = https://github.com/emacsmirror/external-abook.git
 [submodule "site-lisp/pretty-mode"]
 	path = site-lisp/pretty-mode
 	url = https://github.com/emacsmirror/pretty-mode.git

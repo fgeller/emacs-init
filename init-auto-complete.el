@@ -41,4 +41,11 @@
   (add-to-list 'ac-modes mode))
 
 
+;; Exclude very large buffers from dabbrev
+(defun smp-dabbrev-friend-buffer (other-buffer)
+  (< (buffer-size other-buffer) (* 1 1024 1024)))
+
+(setq dabbrev-friend-buffer-function 'smp-dabbrev-friend-buffer)
+
+
 (provide 'init-auto-complete)

@@ -1,6 +1,7 @@
 (defun require-package (package &optional min-version no-refresh)
   "Ask elpa to install given PACKAGE."
-  (unless (package-installed-p package min-version)
+  (if (package-installed-p package min-version)
+      t
     (if (or (assoc package package-archive-contents) no-refresh)
         (package-install package)
       (progn
@@ -50,7 +51,9 @@
 ;; (require-package 'smex)
 (require-package 'rainbow-mode)
 (require-package 'maxframe)
-(require-package 'org)
+(when (< emacs-major-version 24)
+  (require-package 'org))
+(require-package 'htmlize)
 (require-package 'clojure-mode)
 (require-package 'clojure-test-mode)
 (require-package 'diminish)
@@ -83,6 +86,7 @@
 ;; (require-package 'less-css-mode)
 (require-package 'hl-sexp)
 (require-package 'dsvn)
+(require-package 'pointback)
 (require-package 'crontab-mode)
 (require-package 'regex-tool)
 (require-package 'rinari)

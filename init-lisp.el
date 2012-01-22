@@ -12,7 +12,7 @@
 
 (add-hook 'paredit-mode-hook 'maybe-map-paredit-newline)
 
-(eval-after-load "paredit"
+(eval-after-load 'paredit
   '(progn
      ;; These are handy everywhere, not just in lisp modes
      (global-set-key (kbd "M-(") 'paredit-wrap-round)
@@ -62,7 +62,7 @@
 
 
 ;; Prevent flickery behaviour due to hl-sexp-mode unhighlighting before each command
-(eval-after-load "hl-sexp"
+(eval-after-load 'hl-sexp
   '(defadvice hl-sexp-mode (after unflicker (turn-on) activate)
      (when turn-on
        (remove-hook 'pre-command-hook #'hl-sexp-unhighlight))))
