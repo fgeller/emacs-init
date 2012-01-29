@@ -278,5 +278,6 @@ the character typed."
 ;; Hook into saving for persisting
 (push #'save-persistent-scratch kill-emacs-hook)
 
+(require 'expand-region)
 
 (provide 'init-editing-utils)
