@@ -1,3 +1,5 @@
+(require 'unbound)
+
 (defvar nc-minor-mode-map (make-keymap)
   "nc-minor-mode keymap.")
 (let ((f (lambda (m)
@@ -101,6 +103,9 @@
 (define-key ctl-l-map "q"		'query-replace)
 (define-key ctl-l-map "Q"		'query-replace-regexp)
 (define-key ctl-l-map "r"		'revert-buffer)
+(define-key ctl-l-map "tn"		'multi-term-next)
+(define-key ctl-l-map "tp"		'multi-term-prev)
+(define-key ctl-l-map "tt"		'multi-term)
 (define-key ctl-l-map "ui"		'ucs-insert)
 (define-key ctl-l-map "U"		'browse-url)
 (define-key ctl-l-map "v="		'vc-diff)
@@ -137,14 +142,11 @@
 (define-key ctl-l-map "\C-r"	'isearch-backward-regexp)
 (define-key ctl-l-map "\C-s"	'isearch-forward-regexp)
 
-(global-set-key (kbd "<S-iso-lefttab>") 'indent-relative)
-(global-set-key (kbd "<S-tab>") 'indent-relative)
-(global-set-key (kbd "<backtab>") 'indent-relative)
-
 (global-set-key (kbd "M-F") 'forward-whitespace)
 (global-set-key (kbd "M-B") 'fg/backward-whitespace)
 
 (global-set-key (kbd "C-`") 'other-window)
+(global-set-key (kbd "M-RET") 'er/expand-region)
 
 (when *is-a-mac*
   (setq mac-command-modifier 'none)
