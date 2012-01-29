@@ -6,8 +6,8 @@
 
 (global-auto-complete-mode t)
 (setq ac-stop-flymake-on-completing t)
-(setq ac-auto-start 2)
-(setq ac-delay 1)
+(setq ac-auto-start 3)
+(setq ac-delay 0.25)
 (setq ac-ignore-case 'smart) ; insensitive for lower case
 (setq ac-fuzzy-enable nil)
 (setq ac-dwim nil) ; To get pop-ups with docs even if a word is uniquely completed
