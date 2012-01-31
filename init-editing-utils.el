@@ -23,7 +23,7 @@
  truncate-lines t
  truncate-partial-width-windows nil
  visible-bell nil
- column-number-mode 1
+ column-number-mode nil
  transient-mark-mode t
  goto-address-mail-face 'link
  revert-without-query '(".*")
