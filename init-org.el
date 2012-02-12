@@ -18,7 +18,6 @@
       org-agenda-files `(,org-directory)
       org-fast-tag-selection-single-key 'expert
       org-tags-column 80
-      initial-major-mode 'org-mode
       org-default-notes-file (concat org-directory "/Notes.org")
       org-footnote-auto-label (quote plain)
       org-hide-emphasis-markers t
