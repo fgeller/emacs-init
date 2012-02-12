@@ -145,6 +145,9 @@
 
 (global-set-key (kbd "M-F") 'forward-whitespace)
 (global-set-key (kbd "M-B") 'fg/backward-whitespace)
+(global-set-key (kbd "C-<") 'mark-previous-like-this)
+(global-set-key (kbd "C->") 'mark-next-like-this)
+(global-set-key (kbd "C-x r t") 'inline-string-rectangle)
 
 (global-set-key (kbd "C-`") 'other-window)
 (global-set-key (kbd "M-RET") 'er/expand-region)
