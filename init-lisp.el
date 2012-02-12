@@ -86,9 +86,6 @@
 (defun smp-emacs-lisp-setup ()
   "Enable features useful when working with elisp."
   (require 'elisp-slime-nav)
-  ;; (elisp-slime-nav-mode t)
-  ;; (set-up-hippie-expand-for-elisp)
-  (ac-emacs-lisp-mode-setup)
   (checkdoc-minor-mode))
 
 (let* ((elispy-hooks '(emacs-lisp-mode-hook ielm-mode-hook))
