@@ -1,30 +1,6 @@
 ;; Helper library to find unbound key combinations.
 (require 'unbound)
 
-(defvar nc-minor-mode-map (make-keymap)
-  "nc-minor-mode keymap.")
-(let ((f (lambda (m)
-           `(lambda () (interactive)
-              (message (concat "No! use " ,m " instead."))))))
-  (dolist (l '(("<left>" . "C-b") ("<right>" . "C-f") ("<up>" . "C-p")
-               ("<down>" . "C-n")
-               ("<C-left>" . "M-b") ("<C-right>" . "M-f") ("<C-up>" . "M-{")
-               ("<C-down>" . "M-}")
-               ("<M-left>" . "M-b") ("<M-right>" . "M-f") ("<M-up>" . "M-{")
-               ("<M-down>" . "M-}")
-               ("<delete>" . "C-d") ("<C-delete>" . "M-d")
-               ("<M-delete>" . "M-d") ("<next>" . "C-v") ("<C-next>" . "M-x <")
-               ("<prior>" . "M-v") ("<C-prior>" . "M-x >")
-               ("<home>" . "C-a") ("<C-home>" . "M->")
-               ("<C-home>" . "M-<") ("<end>" . "C-e") ("<C-end>" . "M->")))
-    (define-key nc-minor-mode-map
-      (read-kbd-macro (car l)) (funcall f (cdr l)))))
-(define-minor-mode nc-minor-mode
-  "A minor mode that disables the arrow-keys, pg-up/down, delete
-        and backspace."  t " nc"
-        'nc-minor-mode-map :global t)
-(nc-minor-mode 0)
-
 ;; Train myself to use M-f and M-b instead
 (global-unset-key [M-left])
 (global-unset-key [M-right])
