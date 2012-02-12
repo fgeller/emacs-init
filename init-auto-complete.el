@@ -13,7 +13,20 @@
 (define-key ac-completing-map (kbd "C-n") 'ac-next)
 (define-key ac-completing-map (kbd "C-p") 'ac-previous)
 
+(defface ac-etags-candidate-face
+  '((t (:background "gainsboro" :foreground "deep sky blue")))
+  "Face for etags candidate")
 
+(defface ac-etags-selection-face
+  '((t (:background "deep sky blue" :foreground "white")))
+  "Face for the etags selected candidate.")
+
+(ac-define-source etags
+  '((candidates . (lambda ()
+                    (all-completions ac-target (tags-completion-table))))
+    (candidate-face . ac-etags-candidate-face)
+    (selection-face . ac-etags-selection-face)
+    (requires . 3)))
 
 
 (set-default 'ac-sources
