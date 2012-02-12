@@ -4,7 +4,6 @@
 (require 'auto-complete)
 (require 'auto-complete-config)
 
-(global-auto-complete-mode t)
 (setq ac-stop-flymake-on-completing t)
 (setq ac-auto-start 3)
 (setq ac-delay 0.25)
