@@ -275,5 +275,7 @@ the character typed."
 (require 'undo-tree)
 (global-undo-tree-mode 1)
 
+(require 'highlight-indentation)
+(highlight-indentation-current-column-mode)
 
 (provide 'init-editing-utils)
