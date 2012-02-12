@@ -153,15 +153,13 @@
 (global-set-key (kbd "M-RET") 'er/expand-region)
 
 (when *is-a-mac*
-  (setq mac-command-modifier 'none)
+  (setq mac-command-modifier 'super)
   (setq mac-option-modifier 'meta)
   (setq default-input-method "MacOSX")
-  ;; Make mouse wheel / trackpad scrolling less jerky
   (setq mouse-wheel-scroll-amount '(0.0001)))
 
 (when *is-cocoa-emacs*
-  ;; Woohoo!!
-  (global-set-key (kbd "M-`") 'ns-next-frame)
-  (global-set-key (kbd "M-ˍ") 'ns-do-hide-others))
+  (global-set-key (kbd "S-`") 'ns-next-frame)
+  (global-set-key (kbd "S-h") 'ns-do-hide-others))
 
 (provide 'init-keybindings)
