@@ -29,6 +29,8 @@
  revert-without-query '(".*")
  align-text-modes (quote (text-mode outline-mode org-mode))
  blink-matching-paren t
+ electric-pair-mode -1
+ electric-indent-mode -1
  scroll-conservatively 0)
 
 (add-hook 'find-file-hooks 'goto-address-prog-mode)
@@ -90,19 +92,6 @@
 ;;----------------------------------------------------------------------------
 (show-paren-mode t)
 (paren-activate)     ; activating mic-paren
-
-
-;;----------------------------------------------------------------------------
-;; Autopair quotes and parentheses
-;;----------------------------------------------------------------------------
-(require 'autopair)
-;; (require 'auto-pair+)
-(autopair-global-mode)
-
-(setq autopair-autowrap t)
-;; (setq autopair-goto-char-after-region-wrap 2)
-(electric-pair-mode -1)
-(electric-indent-mode -1)
 
 ;;----------------------------------------------------------------------------
 ;; Fix per-window memory of buffer point positions
