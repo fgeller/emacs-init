@@ -2,7 +2,7 @@
 ;; save the desktop file automatically if it already exists
 (setq desktop-path '("~/.emacs.d"))
 (setq desktop-save 'ask-if-new)
-(desktop-save-mode 1)
+(desktop-save-mode -1)
 (defadvice desktop-read (around trace-desktop-errors)
   (let ((old-debug-on-error debug-on-error))
     (setq debug-on-error t)
