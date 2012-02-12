@@ -44,5 +44,30 @@
 
 (setq dabbrev-friend-buffer-function 'smp-dabbrev-friend-buffer)
 
+;; ropemacs Integration with auto-completion
+(defun ac-ropemacs-candidates ()
+  (mapcar (lambda (completion)
+      (concat ac-prefix completion))
+    (rope-completions)))
+
+(ac-define-source nropemacs
+  '((candidates . ac-ropemacs-candidates)
+    (symbol     . "p")))
+
+(ac-define-source nropemacs-dot
+  '((candidates . ac-ropemacs-candidates)
+    (symbol     . "p")
+    (prefix     . c-dot)
+    (requires   . 0)))
+
+(defun ac-nropemacs-setup ()
+  (setq ac-delay 1)
+  (setq ac-sources (append '(ac-source-nropemacs
+                             ac-source-nropemacs-dot) ac-sources)))
+(defun ac-python-mode-setup ()
+  (setq ac-sources '(ac-source-etags
+                     ac-source-yasnippet
+                     ac-source-filename
+                     ac-source-dictionary)))
 
 (provide 'init-auto-complete)
