@@ -1,4 +1,6 @@
 (setq flymake-gui-warnings-enabled nil)
+(setq flymake-start-syntax-check-on-newline nil)
+(setq flymake-no-changes-timeout 5)
 
 ;; Stop flymake from breaking when ruby-mode is invoked by mmm-mode,
 ;; at which point buffer-file-name is nil
@@ -13,6 +15,5 @@ Return nil if we cannot, non-nil if we can."
 
 (require 'flymake)
 (require 'flymake-cursor)
-
 
 (provide 'init-flymake)
