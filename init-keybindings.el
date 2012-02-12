@@ -118,6 +118,8 @@
 (global-set-key (kbd "C-`") 'other-window)
 (global-set-key (kbd "M-RET") 'er/expand-region)
 
+(add-hook 'company-mode-hook
+          (lambda () (global-set-key (kbd "C-;") 'company-complete-common)))
 
 (global-set-key (kbd "s-<up>") 'up-list)
 (global-set-key (kbd "s-<down>") 'down-list)
