@@ -277,6 +277,12 @@ the character typed."
 (require 'expand-region)
 (require 'bookmark+)
 
+(require 'wrap-region)
+(wrap-region-add-wrapper "`" "'")
+(wrap-region-add-wrapper "(" ")")
+(wrap-region-add-wrapper "[" "]")
+(wrap-region-add-wrapper "{" "}")
+
 (require 'undo-tree)
 (global-undo-tree-mode 1)
 
