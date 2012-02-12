@@ -277,4 +277,8 @@ the character typed."
 
 (require 'expand-region)
 
+(require 'undo-tree)
+(global-undo-tree-mode 1)
+
+
 (provide 'init-editing-utils)
