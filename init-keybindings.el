@@ -95,6 +95,7 @@
 (define-key ctl-l-map "l"		'goto-line)
 (define-key ctl-l-map "n"		'notmuch)
 (define-key ctl-l-map "ma"		'auto-complete-mode)
+(define-key ctl-l-map "mc"		'company-mode)
 (define-key ctl-l-map "mf"		'flymake-mode)
 (define-key ctl-l-map "ml"		'lighthouse-mode)
 (define-key ctl-l-map "mr"		'auto-revert-mode)
