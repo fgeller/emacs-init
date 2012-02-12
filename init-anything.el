@@ -1,6 +1,7 @@
 (require 'anything)
 (require 'anything-config)
 (require 'anything-match-plugin)
+(require 'anything-etags+)
 
 (setq anything-input-idle-delay 0.01)
 
@@ -12,6 +13,14 @@
      anything-c-source-bookmarks
      fg/anything-c-source-file-search)
    " *fg/anything-jump*"))
+
+(defun fg/anything-tag ()
+  (interactive)
+  (anything-other-buffer
+   '(anything-c-source-etags+-select
+     anything-c-source-etags+-history
+     anything-c-source-bookmarks)
+   " *fg/anything-tag*"))
 
 (defun fg/anything-describe ()
   (interactive)
