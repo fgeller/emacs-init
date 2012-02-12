@@ -53,10 +53,6 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 ;;----------------------------------------------------------------------------
-
-(require 'bookmark+)
-
-;;----------------------------------------------------------------------------
 ;; auto-save game
 ;;----------------------------------------------------------------------------
 (set-variable 'auto-save-default t)
@@ -275,7 +271,11 @@ the character typed."
 ;; Hook into saving for persisting
 (push #'save-persistent-scratch kill-emacs-hook)
 
+(require 'inline-string-rectangle)
+(require 'mark-more-like-this)
+(require 'ctags-update)
 (require 'expand-region)
+(require 'bookmark+)
 
 (require 'undo-tree)
 (global-undo-tree-mode 1)
