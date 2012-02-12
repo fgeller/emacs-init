@@ -262,15 +262,13 @@ the character typed."
 (require 'ctags-update)
 (require 'expand-region)
 (require 'bookmark+)
+(require 'undo-tree)
 
 (require 'wrap-region)
 (wrap-region-add-wrapper "`" "'")
 (wrap-region-add-wrapper "(" ")")
 (wrap-region-add-wrapper "[" "]")
 (wrap-region-add-wrapper "{" "}")
-
-(require 'undo-tree)
-(global-undo-tree-mode 1)
 
 (require 'highlight-indentation)
 (highlight-indentation-current-column-mode)
