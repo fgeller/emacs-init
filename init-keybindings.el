@@ -118,6 +118,10 @@
 (global-set-key (kbd "C-`") 'other-window)
 (global-set-key (kbd "M-RET") 'er/expand-region)
 
+
+(global-set-key (kbd "s-<up>") 'up-list)
+(global-set-key (kbd "s-<down>") 'down-list)
+
 (when *is-a-mac*
   (setq mac-command-modifier 'super)
   (setq mac-option-modifier 'meta)
