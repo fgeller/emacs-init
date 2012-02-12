@@ -11,12 +11,6 @@
   (let ((current-prefix-arg t))
     (magit-status default-directory)))
 
-(global-set-key [(meta f12)] 'magit-status)
-(global-set-key [(shift meta f12)] 'magit-status-somedir)
-
-(when *is-a-mac*
-  (add-hook 'magit-mode-hook (lambda () (local-unset-key [(meta h)]))))
-
 (eval-after-load 'magit
   '(progn
      (require 'magit-svn)))
@@ -67,7 +61,7 @@ With a prefix argument, makes a private paste."
                      (file-name-extension file)
                      "txt")))
        (gist-request
-        (format "https://%s@gist.github.com/gists" 
+        (format "https://%s@gist.github.com/gists"
                 (or (car (github-auth-info)) ""))
         (or callback 'gist-created-callback)
         `(,@(if private '(("action_button" . "private")))
