@@ -121,7 +121,7 @@
 (add-hook 'company-mode-hook
           (lambda () (global-set-key (kbd "C-;") 'company-complete-common)))
 
-(global-set-key (kbd "s-<up>") 'up-list)
+(global-set-key (kbd "s-<up>") 'backward-up-sexp)
 (global-set-key (kbd "s-<down>") 'down-list)
 
 (when *is-a-mac*
