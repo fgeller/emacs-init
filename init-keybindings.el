@@ -64,6 +64,7 @@
 (define-key ctl-l-map "cha"		'hs-hide-all)
 (define-key ctl-l-map "cr"		'recompile)
 (define-key ctl-l-map "cc"		'compile)
+(define-key ctl-l-map "cl"		'pylookup-lookup)
 (define-key ctl-l-map "d"		'duplicate-line)
 (define-key ctl-l-map "eb"		'ediff-buffers)
 (define-key ctl-l-map "el"		'ediff-regions-linewise)
