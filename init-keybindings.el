@@ -1,18 +1,6 @@
 ;; Helper library to find unbound key combinations.
 (require 'unbound)
 
-;; Train myself to use M-f and M-b instead
-(global-unset-key [M-left])
-(global-unset-key [M-right])
-
-;; Vimmy alternatives to M-^ and C-u M-^
-(global-set-key (kbd "C-c j") 'join-line)
-(global-set-key (kbd "C-c J") (lambda () (interactive) (join-line 1)))
-
-(global-set-key (kbd "M-T") 'transpose-lines)
-(global-set-key (kbd "C-.") 'set-mark-command)
-(global-set-key (kbd "C-x C-.") 'pop-global-mark)
-
 (global-unset-key "\C-l")
 (defvar ctl-l-map (make-keymap)
   "Keymap for local bindings and functions, prefixed by (^L)")
