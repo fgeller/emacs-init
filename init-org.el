@@ -105,12 +105,6 @@
      ;; (require 'org-fstree)
      ))
 
-(eval-after-load 'org
-  '(progn
-     (define-key org-mode-map (kbd "<S-iso-lefttab>") 'indent-relative)
-     (define-key org-mode-map (kbd "<S-tab>") 'indent-relative)
-     (define-key org-mode-map (kbd "<backtab>") 'indent-relative)))
-
 (defun fg/publish-state-entry-state-change-to-gcal ()
   (let ((new-title (org-get-heading))
     (gcal-id (org-entry-get nil "GCalId")))
