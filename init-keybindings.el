@@ -1,3 +1,4 @@
+;; Helper library to find unbound key combinations.
 (require 'unbound)
 
 (defvar nc-minor-mode-map (make-keymap)
