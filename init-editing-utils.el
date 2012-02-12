@@ -278,4 +278,6 @@ the character typed."
 (require 'highlight-indentation)
 (highlight-indentation-current-column-mode)
 
+(require 'compile+)
+
 (provide 'init-editing-utils)
