@@ -24,19 +24,8 @@
              python-indent 2
              indent-tabs-mode t
              python-guess-indent nil
-             whitespace-style '(face
-                                tabs
-                                spaces
-                                trailing
-                                lines
-                                space-before-tab::tab
-                                newline
-                                indentation::tab
-                                empty
-                                space-after-tab::tab
-                                space-mark
-                                tab-mark
-                                newline-mark))))
+             whitespace-style '(face tabs spaces trailing lines space-before-tab::tab newline indentation::tab empty space-after-tab::tab space-mark tab-mark newline-mark)
+             )))
 
 (defun flymake-python-init ()
   (let* ((temp-file (flymake-init-create-temp-buffer-copy
