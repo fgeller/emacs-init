@@ -19,7 +19,7 @@
    '(anything-c-source-de
      anything-c-source-recentf
      fg/anything-c-source-file-search)
-   " *fg/anything-jump*"))
+   " *fg/anything-describe*"))
 
 (defun fg/anything-man-pages ()
   (interactive)
