@@ -6,8 +6,6 @@
       magit-process-popup-time 10
       magit-completing-read-function 'magit-ido-completing-read)
 
-(add-hook 'magit-log-mode-hook (lambda () (setq show-trailing-whitespace nil)))
-
 (defun magit-status-somedir ()
   (interactive)
   (let ((current-prefix-arg t))

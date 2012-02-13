@@ -17,7 +17,7 @@
  make-backup-files nil
  mouse-yank-at-point t
  set-mark-command-repeat-pop t
- show-trailing-whitespace t
+ show-trailing-whitespace nil
  tooltip-delay 1.5
  size-indication-mode t
  truncate-lines t
@@ -35,8 +35,7 @@
  )
 
 (add-hook 'find-file-hooks 'goto-address-prog-mode)
-;; (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
-
+(add-hook 'prog-mode-hook (lambda () (setq show-trailing-whitespace t)))
 
 (setq whitespace-style
       '(face
