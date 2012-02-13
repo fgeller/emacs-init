@@ -90,13 +90,11 @@
 ;;----------------------------------------------------------------------------
 (global-pointback-mode)
 
-
 ;;----------------------------------------------------------------------------
 ;; Don't disable case-change functions
 ;;----------------------------------------------------------------------------
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
-
 
 ;;----------------------------------------------------------------------------
 ;; Rectangle selections, and overwrite text when the selection is active
@@ -113,12 +111,10 @@
       (newline)
       (insert line-text))))
 
-
 ;;----------------------------------------------------------------------------
 ;; Shift lines up and down with M-up and M-down
 ;;----------------------------------------------------------------------------
 (move-text-default-bindings)
-
 
 ;;----------------------------------------------------------------------------
 ;; Fix backward-up-list to understand quotes, see http://bit.ly/h7mdIL
@@ -156,7 +152,6 @@
 
 (suspend-mode-during-cua-rect-selection 'whole-line-or-region-mode)
 
-
 ;;----------------------------------------------------------------------------
 ;; Unfill regions or paragraphs (see http://xahlee.org/emacs/emacs_unfill-paragraph.html)
 ;;----------------------------------------------------------------------------
@@ -174,8 +169,6 @@ This command does the reverse of `fill-region'."
   (let ((fill-column most-positive-fixnum))
     (fill-region start end)))
 
-
-
 ;;----------------------------------------------------------------------------
 ;; Random line sorting
 ;;----------------------------------------------------------------------------
@@ -190,7 +183,6 @@ This command does the reverse of `fill-region'."
           ((inhibit-field-text-motion t))
         (sort-subr nil 'forward-line 'end-of-line nil nil
                    (lambda (s1 s2) (eq (random 2) 0)))))))
-
 
 (defun goto-match-paren (arg)
   "Go to the matching parenthesis if on parenthesis, otherwise insert
