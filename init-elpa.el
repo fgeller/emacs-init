@@ -45,6 +45,7 @@
 ;; (require-package 'haskell-mode)
 (require-package 'flymake-cursor)
 (require-package 'json)
+(require-package 'js3)
 (require-package 'lua-mode)
 (require-package 'project-local-variables)
 (require-package 'ruby-mode)
