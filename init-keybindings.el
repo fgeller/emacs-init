@@ -134,4 +134,8 @@
   (global-set-key (kbd "S-`") 'ns-next-frame)
   (global-set-key (kbd "S-h") 'ns-do-hide-others))
 
+(add-hook 'outline-minor-mode-hook
+          (lambda () (local-set-key (kbd "M-o")
+                               outline-mode-prefix-map)))
+
 (provide 'init-keybindings)
