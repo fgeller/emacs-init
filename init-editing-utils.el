@@ -31,7 +31,8 @@
  blink-matching-paren t
  electric-pair-mode -1
  electric-indent-mode -1
- scroll-conservatively 0)
+ scroll-conservatively 0
+ )
 
 (add-hook 'find-file-hooks 'goto-address-prog-mode)
 ;; (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
