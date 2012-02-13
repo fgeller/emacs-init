@@ -1,14 +1,22 @@
-(defcustom preferred-javascript-mode 'js2-mode
+(defcustom preferred-javascript-mode 'js3-mode
   "Javascript mode to use for .js files"
   :type 'symbol
   :group 'programming
-  :options '(js2-mode js-mode))
+  :options '(js3-mode js2-mode js-mode))
 (defvar preferred-mmm-javascript-mode 'js-mode)
 (defvar preferred-javascript-indent-level 2)
 
 (autoload 'js2-mode "js2-mode" nil t)
 (require 'js2-mode)
 
+;; Mode specific configurations follow.
+
+(add-hook 'js3-mode-hook
+          (lambda ()
+            (setq js3-auto-indent-p t)         ; it's nice for commas to right themselves.
+            (setq js3-enter-indents-newline t) ; don't need to push tab before typing
+            (setq js3-indent-on-enter-key t)   ; fix indenting before moving on
+            ))
 (add-hook 'js2-mode-hook
           (lambda ()
             (make-variable-buffer-local 'tab-width)
