@@ -19,6 +19,21 @@
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("tromey" . "http://tromey.com/elpa/"))
 
+
+;;------------------------------------------------------------------------------
+;; Also use Melpa for some packages built straight from VC
+;;------------------------------------------------------------------------------
+
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+
+;; Only take certain packages from Melpa
+(setq package-filter-function
+      (lambda (package version archive)
+        (or (not (string-equal archive "melpa"))
+            (memq package '(magit rvm slime mmm-mode dired+ csv-mode
+                                  pretty-mode darcsum org-fstree textile-mode
+                                  ruby-mode js3 git-blame todochiku)))))
+
 (package-initialize)
 
 ;(require-package 'ido-ubiquitous)
