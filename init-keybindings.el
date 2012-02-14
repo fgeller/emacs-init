@@ -116,6 +116,7 @@
 (global-set-key (kbd "C-x r t") 'inline-string-rectangle)
 
 (global-set-key (kbd "C-`") 'other-window)
+(global-set-key (kbd "M-`") 'flymake-goto-next-error)
 (global-set-key (kbd "M-RET") 'er/expand-region)
 
 (add-hook 'company-mode-hook
