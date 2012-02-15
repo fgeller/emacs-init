@@ -259,4 +259,7 @@ the character typed."
 
 (require 'compile+)
 
+(require 'rebox2)
+
+
 (provide 'init-editing-utils)
