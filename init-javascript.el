@@ -30,6 +30,7 @@
             (make-variable-buffer-local 'tab-width)
             (make-variable-buffer-local 'indent-tabs-mode)
             (make-variable-buffer-local 'whitespace-style)
+            (wrap-region-mode 1)
             (add-hook 'before-save-hook 'whitespace-cleanup nil 'local)
             (setq js2-use-font-lock-faces t)
             (setq js2-mode-must-byte-compile nil)
