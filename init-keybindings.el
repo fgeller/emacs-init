@@ -119,9 +119,6 @@
 (global-set-key (kbd "M-`") 'flymake-goto-next-error)
 (global-set-key (kbd "M-RET") 'er/expand-region)
 
-(add-hook 'company-mode-hook
-          (lambda () (global-set-key (kbd "C-;") 'company-complete-common)))
-
 (global-set-key (kbd "s-<up>") 'backward-up-sexp)
 (global-set-key (kbd "s-<down>") 'down-list)
 
