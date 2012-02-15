@@ -39,20 +39,6 @@
 (add-to-list 'flymake-allowed-file-name-masks
              '("\\.py\\'" flymake-python-init))
 
-
-;; cf. http://stackoverflow.com/questions/4079648/combine-python-mode-with-org-mode-for-emacs/4093889#4093889
-
-(defun py-outline-level ()
-  (let (buffer-invisibility-spec)
-    (save-excursion
-      (skip-chars-forward "\t")
-      (current-column))))
-
-(defun fg/python-outline-hook ()
-  (setq outline-regexp "[ \t]*# \\|[ \t]+\\(class\\|def\\|if\\|elif\\|else\\|while\\|for\\|try\\|except\\|with\\) ")
-  (setq outline-level 'py-outline-level)
-  (outline-minor-mode t))
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Buffer local variables and minor modes ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -68,8 +54,6 @@
             ;; flymake
             (unless (eq buffer-file-name nil)
               (flymake-mode 1))
-            ;; outline-minor-mode for folding
-            (fg/python-outline-hook)
             ;; whitespace cleanup
             (add-hook 'before-save-hook 'whitespace-cleanup nil 'local)))
 
