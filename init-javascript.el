@@ -52,7 +52,9 @@
              tab-width 2
              js2-basic-offset 2
              indent-tabs-mode t
-             whitespace-style '(face tabs spaces trailing lines space-before-tab::tab newline indentation::tab empty space-after-tab::tab space-mark tab-mark newline-mark))))
+             whitespace-style '(face tabs spaces trailing lines space-before-tab::tab newline indentation::tab empty space-after-tab::tab space-mark tab-mark newline-mark)
+             )
+            ))
 
 (add-hook 'js-mode-hook
           (lambda ()
