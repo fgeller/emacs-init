@@ -38,12 +38,6 @@
                ac-source-words-in-same-mode-buffers))
 
 
-;; Exclude very large buffers from dabbrev
-(defun smp-dabbrev-friend-buffer (other-buffer)
-  (< (buffer-size other-buffer) (* 1 1024 1024)))
-
-(setq dabbrev-friend-buffer-function 'smp-dabbrev-friend-buffer)
-
 ;; ropemacs Integration with auto-completion
 (defun ac-ropemacs-candidates ()
   (mapcar (lambda (completion)
