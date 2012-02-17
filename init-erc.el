@@ -10,7 +10,7 @@
                (not (erc-is-message-ctcp-and-not-action-p msg)))
       (todochiku-message (format "ERC message from: %s" nick)
                          msg
-                         (todochiku-icon 'chat)
+                         (todochiku-icon 'irc)
                          t)))
   nil)
 
