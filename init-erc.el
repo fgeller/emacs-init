@@ -8,10 +8,14 @@
         (msg (erc-response.contents parsed)))
     (when (and (erc-current-nick-p target)
                (not (erc-is-message-ctcp-and-not-action-p msg)))
-      (message "ERC message")))
+      (todochiku-message (format "ERC message from: %s" nick)
+                         msg
+                         (todochiku-icon 'chat)
+                         t)))
   nil)
 
-(add-hook 'erc-server-PRIVMSG-functions 'fg/notify-privmsg t)
 
+(add-hook 'erc-server-PRIVMSG-functions 'fg/notify-privmsg t)
+(add-hook 'erc-server-PRIVMSG-functions 'erc-server-PRIVMSG t)
 
 (provide 'init-erc)
