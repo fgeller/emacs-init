@@ -12,7 +12,6 @@
 
 (setq ac-dwim t) ; To get pop-ups with docs even if a word is uniquely completed
 (ac-config-default)
-(setq ac-delay 0.1)
 (setq ac-auto-show-menu t)
 (setq ac-stop-flymake-on-completing t)
 
