@@ -24,6 +24,10 @@
                ac-source-words-in-same-mode-buffers))
 
 
+;;;;;;;;;;;;;;;;;;;;;;; Additional ac sources ;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ETAGS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defface ac-etags-candidate-face
   '((t (:background "gainsboro" :foreground "deep sky blue")))
@@ -41,8 +45,8 @@
     (requires . 3)))
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ropemacs ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; ropemacs Integration with auto-completion
 (defun ac-ropemacs-candidates ()
   (mapcar (lambda (completion)
       (concat ac-prefix completion))
