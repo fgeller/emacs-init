@@ -15,6 +15,15 @@
 (setq ac-auto-show-menu t)
 (setq ac-stop-flymake-on-completing t)
 
+(set-default 'ac-sources
+             '(ac-source-yasnippet
+               ac-source-filename
+               ac-source-files-in-current-dir
+               ac-source-dictionary
+               ac-source-words-in-buffer
+               ac-source-words-in-same-mode-buffers))
+
+
 
 (defface ac-etags-candidate-face
   '((t (:background "gainsboro" :foreground "deep sky blue")))
@@ -31,14 +40,6 @@
     (selection-face . ac-etags-selection-face)
     (requires . 3)))
 
-
-(set-default 'ac-sources
-             '(ac-source-yasnippet
-               ac-source-filename
-               ac-source-files-in-current-dir
-               ac-source-dictionary
-               ac-source-words-in-buffer
-               ac-source-words-in-same-mode-buffers))
 
 
 ;; ropemacs Integration with auto-completion
