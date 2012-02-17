@@ -4,14 +4,18 @@
 (require 'auto-complete)
 (require 'auto-complete-config)
 
+;; Key-bindings
+(define-key ac-mode-map (kbd "C-;") 'ac-expand)
+(define-key ac-mode-map (kbd "C-:") 'ac-complete)
+(define-key ac-completing-map (kbd "C-n") 'ac-next)
+(define-key ac-completing-map (kbd "C-p") 'ac-previous)
+
 (setq ac-dwim t) ; To get pop-ups with docs even if a word is uniquely completed
 (ac-config-default)
 (setq ac-delay 0.1)
 (setq ac-auto-show-menu t)
 (setq ac-stop-flymake-on-completing t)
 
-(define-key ac-completing-map (kbd "C-n") 'ac-next)
-(define-key ac-completing-map (kbd "C-p") 'ac-previous)
 
 (defface ac-etags-candidate-face
   '((t (:background "gainsboro" :foreground "deep sky blue")))
