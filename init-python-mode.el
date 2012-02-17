@@ -19,6 +19,7 @@
       "';'.join(module_completion('''%s'''))\n"
       python-shell-completion-string-code
       "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
+
 (require 'python)
 
 
