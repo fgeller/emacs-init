@@ -260,6 +260,8 @@ the character typed."
 (require 'compile+)
 
 (require 'rebox2)
+(require 'line-comment-banner)
 
+(require 'enclose)
 
 (provide 'init-editing-utils)
