@@ -7,8 +7,6 @@
 ;; python-mode ;;
 ;;;;;;;;;;;;;;;;;
 
-(define-key python-mode-map (kbd "RET") 'newline-and-indent)
-
 (setq python-shell-interpreter "ipython"
       python-shell-interpreter-args ""
       python-shell-prompt-regexp "In \\[[0-9]+\\]: "
@@ -21,7 +19,7 @@
       "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
 
 (require 'python)
-
+(define-key python-mode-map (kbd "RET") 'newline-and-indent)
 
 
 ;;;;;;;;;;;;;;
