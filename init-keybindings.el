@@ -132,8 +132,13 @@
   (global-set-key (kbd "S-`") 'ns-next-frame)
   (global-set-key (kbd "S-h") 'ns-do-hide-others))
 
+
 (add-hook 'outline-minor-mode-hook
           (lambda () (local-set-key (kbd "M-o")
                                outline-mode-prefix-map)))
+
+(global-set-key (kbd "C-M-=") 'increase-default-font-height)
+(global-set-key (kbd "C-M--") 'decrease-default-font-height)
+
 
 (provide 'init-keybindings)
