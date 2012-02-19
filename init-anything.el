@@ -42,14 +42,35 @@
    '(anything-c-source-info-pages)
    " *fg/anything-info-pages*"))
 
+
+;; taken from full-ack.el
+(defvar fg/project-root-file-patterns
+  '(".project\\'" ".xcodeproj\\'" ".sln\\'" "\\`Project.ede\\'"
+    "\\`.git\\'" "\\`.bzr\\'" "\\`_darcs\\'" "\\`.hg\\'"))
+
+(defun fg/guess-project-root ()
+  (interactive)
+  (catch 'root
+    (let ((dir (expand-file-name (if buffer-file-name
+                                     (file-name-directory buffer-file-name)
+                                   default-directory)))
+          (prev-dir nil)
+          (pattern (mapconcat 'identity fg/project-root-file-patterns "\\|")))
+      (while (not (equal dir prev-dir))
+        (when (directory-files dir nil pattern t)
+          (throw 'root dir))
+        (setq prev-dir dir
+              dir (file-name-directory (directory-file-name dir)))))))
+
 ;; http://www.emacswiki.org/emacs/AnythingSources#toc14
 (defvar fg/anything-c-source-file-search
-  '((name . "File Search")
-    (init . (lambda () (setq anything-default-directory default-directory)))
+  '((name . "Project File Search")
+    (init . (lambda () (setq anything-default-directory default-directory
+                        project-root-folder (fg/guess-project-root))))
     (candidates . (lambda ()
                     (let ((args
                            (format "%s -iname '*%s*' -print"
-                                   anything-default-directory
+                                   project-root-folder
                                    anything-pattern)))
                       (start-process-shell-command "file-search-process" nil
                                                    "find" args))))
