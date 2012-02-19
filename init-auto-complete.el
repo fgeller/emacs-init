@@ -79,10 +79,6 @@
   (setq ac-delay 1)
   (setq ac-sources (append '(ac-source-nropemacs
                              ac-source-nropemacs-dot) ac-sources)))
-(defun ac-python-mode-setup ()
-  (setq ac-sources '(ac-source-etags
-                     ac-source-yasnippet
-                     ac-source-filename
-                     ac-source-dictionary)))
+
 
 (provide 'init-auto-complete)
