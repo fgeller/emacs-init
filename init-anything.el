@@ -22,13 +22,14 @@
      anything-c-source-bookmarks)
    " *fg/anything-tag*"))
 
-(defun fg/anything-describe ()
+(defun fg/anything-help ()
   (interactive)
   (anything-other-buffer
-   '(anything-c-source-de
-     anything-c-source-recentf
-     fg/anything-c-source-file-search)
-   " *fg/anything-describe*"))
+   '(
+     anything-c-source-info-emacs
+     anything-c-source-man-pages
+     )
+   "*fg/anything-help"))
 
 (defun fg/anything-man-pages ()
   (interactive)
