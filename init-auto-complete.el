@@ -47,18 +47,28 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ropemacs ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defun ac-ropemacs-candidates ()
+(defun ac-nropemacs-candidates ()
   (mapcar (lambda (completion)
-      (concat ac-prefix completion))
-    (rope-completions)))
+            (concat ac-prefix completion))
+          (ignore-errors
+            (rope-completions))))
+
+(defun ac-nropemacs-get-doc (candidate)
+  (catch 'loop
+    (mapcar (lambda (tpl)
+              (if (string= (car tpl) (substring candidate (length ac-prefix)))
+                  (throw 'loop (cadr tpl))))
+            (rope-extended-completions))))
 
 (ac-define-source nropemacs
-  '((candidates . ac-ropemacs-candidates)
-    (symbol     . "p")))
+  '((candidates . ac-nropemacs-candidates)
+    (document . ac-nropemacs-get-doc)
+    (symbol     . "π")))
 
 (ac-define-source nropemacs-dot
-  '((candidates . ac-ropemacs-candidates)
-    (symbol     . "p")
+  '((candidates . ac-nropemacs-candidates)
+    (document . ac-nropemacs-get-doc)
+    (symbol     . "π")
     (prefix     . c-dot)
     (requires   . 0)))
 

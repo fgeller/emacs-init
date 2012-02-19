@@ -76,6 +76,8 @@
             ;; flymake
             (unless (eq buffer-file-name nil)
               (flymake-mode 1))
+            ;; auto-complete
+            (ac-nropemacs-setup)
             ;; whitespace cleanup
             (add-hook 'before-save-hook 'whitespace-cleanup nil 'local)))
 
