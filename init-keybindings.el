@@ -122,6 +122,8 @@
 
 (global-set-key (kbd "s-<up>") 'backward-up-sexp)
 (global-set-key (kbd "s-<down>") 'down-list)
+(global-set-key (kbd "s-f") 'forward-sexp)
+(global-set-key (kbd "s-b") 'backward-sexp)
 
 (when *is-a-mac*
   (setq mac-command-modifier 'super)
