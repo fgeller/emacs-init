@@ -7,6 +7,7 @@
 (define-key global-map "\C-l" 'Control-L-prefix)
 (fset 'Control-L-prefix ctl-l-map)
 
+(define-key ctl-l-map "A"		'ack)
 (define-key ctl-l-map "aa"		'fg/anything-jump)
 (define-key ctl-l-map "ab"		'anything-browse-code)
 (define-key ctl-l-map "ad"		'anything-c-apropos)
