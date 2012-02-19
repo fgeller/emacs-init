@@ -245,7 +245,6 @@ the character typed."
 (require 'mark-more-like-this)
 (require 'ctags-update)
 (require 'expand-region)
-(require 'bookmark+)
 (require 'undo-tree)
 
 (require 'wrap-region)
