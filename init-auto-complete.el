@@ -45,6 +45,8 @@
     (selection-face . ac-etags-selection-face)
     (requires . 3)))
 
+(defun ac-etags-setup ()
+  (setq ac-sources (append '(ac-source-etags) ac-sources)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ropemacs ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
