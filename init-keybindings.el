@@ -103,12 +103,6 @@
 (define-key ctl-l-map "%"		'goto-match-paren)
 (define-key ctl-l-map "<"		'beginning-of-buffer)
 (define-key ctl-l-map ">"		'end-of-buffer)
-(define-key ctl-l-map "\C-c"	'calendar)
-(define-key ctl-l-map "\C-l"	'redraw-display)
-(define-key ctl-l-map "\C-n"	'linum-mode)
-(define-key ctl-l-map "\C-q"	'fill-paragraph)
-(define-key ctl-l-map "\C-r"	'isearch-backward-regexp)
-(define-key ctl-l-map "\C-s"	'isearch-forward-regexp)
 
 (global-set-key (kbd "M-F") 'forward-whitespace)
 (global-set-key (kbd "M-B") 'fg/backward-whitespace)
