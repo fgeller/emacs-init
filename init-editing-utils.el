@@ -254,7 +254,6 @@ the character typed."
 (wrap-region-add-wrapper "{" "}")
 
 (require 'highlight-indentation)
-(highlight-indentation-current-column-mode)
 
 (require 'compile+)
 
