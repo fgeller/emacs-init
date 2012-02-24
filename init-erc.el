@@ -14,7 +14,14 @@
                          t)))
   nil)
 
+(defun fg/notify-nick-mentioned (match-type nick msg)
+  (when (eq match-type 'current-nick)
+    (todochiku-message (format "%s mentioned your nick." (car (split-string nick "!")))
+                       msg
+                       (todochiku-icon 'irc)
+                       t)))
 
+(add-hook 'erc-text-matched-hook 'fg/notify-nick-mentioned)
 (add-hook 'erc-server-PRIVMSG-functions 'fg/notify-privmsg t)
 (add-hook 'erc-server-PRIVMSG-functions 'erc-server-PRIVMSG t)
 
