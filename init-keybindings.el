@@ -79,6 +79,7 @@
 (define-key ctl-l-map "v="		'vc-diff)
 (define-key ctl-l-map "vd"		'vc-dir)
 (define-key ctl-l-map "vD"		'vc-delete-file)
+(define-key ctl-l-map "vF"		'vc-pull)
 (define-key ctl-l-map "vg"		'vc-annotate)
 (define-key ctl-l-map "vl"		'vc-print-log)
 (define-key ctl-l-map "vu"		'vc-revert)
