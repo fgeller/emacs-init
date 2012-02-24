@@ -10,5 +10,6 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 (when (and *is-a-mac* window-system)
   (set-exec-path-from-shell-PATH))
 
+(setenv "EDITOR" "emacsclient")
 
 (provide 'init-exec-path)
