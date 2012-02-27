@@ -1,6 +1,11 @@
 ;; Helper library to find unbound key combinations.
 (require 'unbound)
 
+(defun fg/eshell-with-prefix ()
+  (interactive)
+  (setq current-prefix-arg '(4))
+  (call-interactively 'eshell))
+
 (global-unset-key "\C-l")
 (defvar ctl-l-map (make-keymap)
   "Keymap for local bindings and functions, prefixed by (^L)")
@@ -71,6 +76,8 @@
 (define-key ctl-l-map "q"		'query-replace)
 (define-key ctl-l-map "Q"		'query-replace-regexp)
 (define-key ctl-l-map "r"		'revert-buffer)
+(define-key ctl-l-map "ss"		'eshell)
+(define-key ctl-l-map "sn"		'fg/eshell-with-prefix)
 (define-key ctl-l-map "tn"		'multi-term-next)
 (define-key ctl-l-map "tp"		'multi-term-prev)
 (define-key ctl-l-map "tt"		'multi-term)
