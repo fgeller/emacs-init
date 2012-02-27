@@ -126,6 +126,14 @@
 (global-set-key (kbd "s-<down>") 'down-list)
 (global-set-key (kbd "s-f") 'forward-sexp)
 (global-set-key (kbd "s-b") 'backward-sexp)
+(global-set-key (kbd "s-n") 'forward-list)
+(global-set-key (kbd "s-p") 'backward-list)
+(global-set-key (kbd "s-u") 'backward-up-list)
+(global-set-key (kbd "s-a") 'beginning-of-defun)
+(global-set-key (kbd "s-e") 'end-of-defun)
+(global-set-key (kbd "s-h") 'mark-defun)
+(global-set-key (kbd "s-k") 'kill-sexp)
+(global-set-key (kbd "s-t") 'transpose-sexps)
 
 (when *is-a-mac*
   (setq mac-command-modifier 'super)
