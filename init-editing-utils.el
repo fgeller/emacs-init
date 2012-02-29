@@ -262,4 +262,33 @@ the character typed."
 
 (require 'enclose)
 
+;; http://emacs-fu.blogspot.com/2011/08/customizing-mode-line.html
+
+(setq-default
+ mode-line-format
+ (list
+  " "
+  '(:eval (propertize "%b" 'face 'mode-line-buffer-id
+                      'help-echo (buffer-file-name)))
+  '(:eval (when buffer-read-only
+            (propertize "%"
+                        'face 'mode-line
+                        'help-echo "Buffer is read-only")))
+  '(:eval (when (buffer-modified-p)
+            (propertize "*"
+                        'face 'mode-line-highlight
+                        'help-echo "Buffer has been modified")))
+  " "
+  (propertize "%l" 'face 'mode-line)
+  ":"
+  (propertize "%c" 'face 'mode-line)
+  " "
+  (propertize "%p" 'face 'mode-line) ;; where are we
+  "/"
+  (propertize "%I" 'face 'mode-line) ;; buffer size
+  " "
+  '(:eval (propertize "%m" 'face 'mode-line   ;; major mode
+                      'help-echo buffer-file-coding-system))
+  ))
+
 (provide 'init-editing-utils)
