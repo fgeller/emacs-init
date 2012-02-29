@@ -57,6 +57,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'python-mode-hook
           (lambda ()
+            (setq mode-name "py-mode")
             (wrap-region-mode 1)
             ;; pylookup
             (make-local-variable browse-url-browser-function)
