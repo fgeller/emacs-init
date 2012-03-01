@@ -79,51 +79,9 @@
              indent-tabs-mode t
              whitespace-style '(face tabs spaces trailing lines space-before-tab::tab newline indentation::tab empty space-after-tab::tab space-mark tab-mark newline-mark))))
 
-;; Need to first remove from list if present, since elpa adds entries too, which
-;; may be in an arbitrary order
-;; (setq auto-mode-alist (cons `("\\.js\\(\\.erb\\)?$" . ,preferred-javascript-mode)
-;;                             (loop for entry in auto-mode-alist
-;;                                   unless (eq preferred-javascript-mode (cdr entry))
-;;                                   collect entry)))
-
 ;; On-the-fly syntax checking
 (eval-after-load 'js
   '(add-hook 'js-mode-hook 'flymake-jslint-load))
-
-;; MMM submode regions in html
-(eval-after-load 'mmm-vars
-  `(progn
-     (mmm-add-group
-      'html-js
-      '((js-script-cdata
-         :submode ,preferred-mmm-javascript-mode
-         :face mmm-code-submode-face
-         :front "<script[^>]*>[ \t\n]*\\(//\\)?<!\\[CDATA\\[[ \t]*\n?"
-         :back "[ \t]*\\(//\\)?]]>[ \t\n]*</script>"
-         :insert ((?j js-tag nil @ "<script language=\"JavaScript\">"
-                      @ "\n" _ "\n" @ "</script>" @)))
-        (js-script
-         :submode ,preferred-mmm-javascript-mode
-         :face mmm-code-submode-face
-         :front "<script[^>]*>[ \t]*\n?"
-         :back "[ \t]*</script>"
-         :insert ((?j js-tag nil @ "<script language=\"JavaScript\">"
-                      @ "\n" _ "\n" @ "</script>" @)))
-        (js-inline
-         :submode ,preferred-mmm-javascript-mode
-         :face mmm-code-submode-face
-         :front "on\w+=\""
-         :back "\"")))
-     (dolist (mode (list 'html-mode 'nxml-mode))
-       (mmm-add-mode-ext-class mode "\\.r?html\\(\\.erb\\)?$" 'html-js))))
-
-(add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
-(eval-after-load 'coffee-mode
-  `(setq coffee-js-mode preferred-javascript-mode
-         coffee-tab-width preferred-javascript-indent-level))
-
-(add-hook 'coffee-mode-hook 'flymake-coffee-load)
-
 
 (setq inferior-js-program-command "/usr/local/bin/node")
 (defun add-inferior-js-keys ()
