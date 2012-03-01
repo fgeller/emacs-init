@@ -16,6 +16,9 @@
 ;; standard javascript-mode
 (setq javascript-indent-level preferred-javascript-indent-level)
 
+(autoload 'inferior-moz-mode "moz" "MozRepl Inferior Mode" t)
+(autoload 'moz-minor-mode "moz" "MozRepl Minor Mode" t)
+
 ;; Mode specific configurations follow.
 
 (add-hook 'js3-mode-hook
@@ -33,6 +36,7 @@
             (wrap-region-mode 1)
             (hs-minor-mode 1)
             (rainbow-mode 1)
+            (moz-minor-mode 1)
             (setq mode-name "js2")
             (add-hook 'before-save-hook 'whitespace-cleanup nil 'local)
             (setq js2-use-font-lock-faces t)
@@ -58,6 +62,10 @@
              whitespace-style '(face tabs spaces trailing lines space-before-tab::tab newline indentation::tab empty space-after-tab::tab space-mark tab-mark newline-mark)
              )
             ))
+
+(defun fg/send-browser-reload ()
+  (interactive)
+  (comint-send-string (inferior-moz-process) "BrowserReload()"))
 
 (add-hook 'js-mode-hook
           (lambda ()
