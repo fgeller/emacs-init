@@ -29,8 +29,8 @@
  revert-without-query '(".*")
  align-text-modes (quote (text-mode outline-mode org-mode))
  blink-matching-paren t
- electric-pair-mode -1
- electric-indent-mode -1
+ electric-pair-mode nil
+ electric-indent-mode nil
  scroll-conservatively 0
  )
 
