@@ -49,8 +49,8 @@
             (setq js2-auto-insert-catch-block t)
             (setq js2-cleanup-whitespace t)
             (setq js2-global-externs '(Ext console))
-            (setq js2-highlight-level 2)
-            (setq js2-mirror-mode nil) ; conflicts with autopair
+            (setq js2-highlight-level 3)
+            (setq js2-mirror-mode t) ; conflicts with autopair
             (setq js2-mode-escape-quotes t) ; t disables
             (setq js2-mode-squeeze-spaces t)
             (setq js2-pretty-multiline-decl-indentation-p t)
