@@ -21,6 +21,7 @@
 (define-key ctl-l-map "ai"		'fg/anything-help)
 (define-key ctl-l-map "al"		'anything-locate)
 (define-key ctl-l-map "am"		'fg/anything-man-pages)
+(define-key ctl-l-map "ar"		'anything-regexp)
 (define-key ctl-l-map "at"		'fg/anything-tag)
 (define-key ctl-l-map "au"		'anything-ucs)
 (define-key ctl-l-map "ay"		'anything-show-kill-ring)
@@ -121,6 +122,7 @@
 (global-set-key (kbd "C-`") 'other-window)
 (global-set-key (kbd "M-`") 'flymake-goto-next-error)
 (global-set-key (kbd "M-RET") 'er/expand-region)
+(global-set-key (kbd "M-y") 'anything-show-kill-ring)
 
 (global-set-key (kbd "s-<up>") 'backward-up-sexp)
 (global-set-key (kbd "s-<down>") 'down-list)

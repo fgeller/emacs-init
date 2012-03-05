@@ -8,11 +8,11 @@
 (defun fg/anything-jump ()
   (interactive)
   (anything-other-buffer
-   '(anything-c-source-buffers
+   '(anything-c-source-buffers-list
      anything-c-source-recentf
-     anything-c-source-bookmarks
-     fg/anything-c-source-file-search)
-   " *fg/anything-jump*"))
+     fg/anything-c-source-file-search
+     anything-c-source-buffer-not-found)
+   "*fg/anything-jump*"))
 
 (defun fg/anything-tag ()
   (interactive)
@@ -85,9 +85,10 @@
   (let ((current-prefix-arg '(4)))
     (call-interactively 'anything-do-grep)))
 
-
 (setq anything-ff-auto-update-initial-value nil)
-(ac-mode -1)
+(setq anything-ff-transformer-show-only-basename t)
+
+(ac-mode 1)
 
 
 (provide 'init-anything)
