@@ -289,6 +289,23 @@ the character typed."
   " "
   '(:eval (propertize "%m" 'face 'mode-line   ;; major mode
                       'help-echo buffer-file-coding-system))
+  '(:eval (when (and flymake-mode-line-e-w
+                     (not (string= "" flymake-mode-line-e-w))
+                     (not (string= "0/0" flymake-mode-line-e-w)))
+            (progn
+              (string-match
+               "\\([0-9]+\\)/\\([0-9]+\\)"
+               flymake-mode-line-e-w
+               )
+              (let ((error-str (match-string 1 flymake-mode-line-e-w))
+                    (warn-str (match-string 2 flymake-mode-line-e-w)))
+                (concat
+                 " fm["
+                 (propertize error-str 'face 'flymake-errline)
+                 "/"
+                 (propertize warn-str 'face 'flymake-warnline)
+                 "]"
+                 )))))
   ))
 
 (provide 'init-editing-utils)
