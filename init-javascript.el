@@ -23,9 +23,47 @@
 
 (add-hook 'js3-mode-hook
           (lambda ()
-            (setq js3-auto-indent-p t)         ; it's nice for commas to right themselves.
-            (setq js3-enter-indents-newline t) ; don't need to push tab before typing
-            (setq js3-indent-on-enter-key t)   ; fix indenting before moving on
+            (make-variable-buffer-local 'tab-width)
+            (make-variable-buffer-local 'indent-tabs-mode)
+            (make-variable-buffer-local 'whitespace-style)
+            (wrap-region-mode 1)
+            (hs-minor-mode 1)
+            (rainbow-mode 1)
+            (moz-minor-mode 1)
+            (setq mode-name "js3")
+            (add-hook 'before-save-hook 'whitespace-cleanup nil 'local)
+            (setq js3-use-font-lock-faces t)
+            (setq js3-mode-must-byte-compile nil)
+            (setq js3-basic-offset preferred-javascript-indent-level)
+            (setq js3-indent-on-enter-key t)
+            (setq js3-auto-indent-p t)
+            (setq js3-enter-indents-newline t)
+            (setq js3-bounce-indent-p nil)
+            (setq js3-auto-insert-catch-block t)
+            (setq js3-cleanup-whitespace t)
+            (setq js3-global-externs '(Ext console))
+            (setq js3-highlight-level 3)
+            (setq js3-mirror-mode t) ; conflicts with autopair
+            (setq js3-mode-escape-quotes t) ; t disables
+            (setq js3-mode-squeeze-spaces t)
+            (setq js3-pretty-multiline-decl-indentation-p t)
+            (setq js3-consistent-level-indent-inner-bracket-p t)
+            (setq js3-rebind-eol-bol-keys t)
+            (setq js3-indent-tabs-mode t)
+            (setq js3-compact-list t)
+            (setq js3-compact-while t)
+            (setq js3-compact-infix t)
+            (setq js3-compact-if t)
+            (setq js3-compact-for t)
+            (setq js3-compact-expr t)
+            (setq js3-compact-case t)
+            (setq js3-case t)
+            (setq
+             tab-width 2
+             js3-basic-offset 2
+             indent-tabs-mode t
+             whitespace-style '(face tabs spaces trailing lines space-before-tab::tab newline indentation::tab empty space-after-tab::tab space-mark tab-mark newline-mark)
+             )
             ))
 
 (add-hook 'js2-mode-hook
