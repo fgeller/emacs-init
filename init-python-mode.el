@@ -19,12 +19,36 @@
 ;; python-mode ;;
 ;;;;;;;;;;;;;;;;;
 
-(setq py-install-directory "~/.emacs.d/addons/python-mode"
-      pdb-path "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/pdb.py"
-      py-smart-indentation nil
-      py-shell-name "ipython"
-      py-outline-minor-mode-p nil)
-(require 'python-mode)
+(defcustom preferred-python-mode 'python
+  "Major python mode to use."
+  :type 'symbol
+  :group 'programming
+  :options '(python python-mode))
+
+(eval-after-load "python-mode"
+  '(setq py-install-directory "~/.emacs.d/addons/python-mode"
+         pdb-path "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/pdb.py"
+         py-smart-indentation nil
+         py-shell-name "ipython"
+         py-outline-minor-mode-p nil)
+  )
+
+(eval-after-load "python"
+  '(progn
+     (setq python-shell-interpreter "ipython"
+           python-shell-interpreter-args ""
+           python-shell-prompt-regexp "In \\[[0-9]+\\]: "
+           python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
+           python-shell-completion-setup-code
+           "from IPython.core.completerlib import module_completion"
+           python-shell-completion-module-string-code
+           "';'.join(module_completion('''%s'''))\n"
+           python-shell-completion-string-code
+           "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
+     (define-key python-mode-map (kbd "RET") 'newline-and-indent))
+  )
+
+(require preferred-python-mode)
 
 ;;;;;;;;;;;;;;
 ;; pylookup ;;
@@ -57,7 +81,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'python-mode-hook
           (lambda ()
-            (setq mode-name "py-mode")
+            (setq mode-name
+                  (if (eq "python-mode" preferred-python-mode)
+                      "py-mode"
+                    "python"))
             (wrap-region-mode 1)
             ;; pylookup
             (make-local-variable browse-url-browser-function)
