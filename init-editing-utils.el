@@ -308,4 +308,57 @@ the character typed."
                  )))))
   ))
 
+;; https://github.com/defunkt/emacs/blob/master/defunkt/defuns.el
+(defun fg/zap-to-char (arg char)
+  "Kill up to but excluding ARG'th occurrence of CHAR.
+Case is ignored if `case-fold-search' is non-nil in the current buffer.
+Goes backward if ARG is negative; error if CHAR not found.
+This emulates Vim's `dt` behavior, which rocks."
+  (interactive "p\ncZap to char: ")
+  (if (char-table-p translation-table-for-input)
+      (setq char (or (aref translation-table-for-input char) char)))
+  (kill-region (point)
+               (progn
+                 (search-forward (char-to-string char) nil nil arg)
+                 (- (point) 1)))
+  (backward-char 1))
+
+;; fix kill-word
+(defun fg/kill-word (arg)
+  "Special version of kill-word which swallows spaces separate from words"
+  (interactive "p")
+
+  (let ((whitespace-regexp "\\s-+"))
+    (kill-region (point)
+                 (cond
+                  ((looking-at whitespace-regexp) (re-search-forward whitespace-regexp) (point))
+                  ((looking-at "\n") (kill-line) (defunkt-kill-word arg))
+                  (t (forward-word arg) (point))))))
+
+(defun fg/backward-kill-word (arg)
+  "Special version of backward-kill-word which swallows spaces separate from words"
+  (interactive "p")
+  (if (looking-back "\\s-+")
+      (kill-region (point) (progn (re-search-backward "\\S-") (forward-char 1) (point)))
+    (backward-kill-word arg)))
+
+
+(require 'thingatpt)
+(defun fg/change-num-at-point (fn)
+  (let* ((num (string-to-number (thing-at-point 'word)))
+         (bounds (bounds-of-thing-at-point 'word)))
+    (save-excursion
+      (goto-char (car bounds))
+      (fg/kill-word 1)
+      (insert (number-to-string (funcall fn num 1))))))
+
+(defun fg/inc-num-at-point ()
+  (interactive)
+  (fg/change-num-at-point '+))
+
+(defun fg/dec-num-at-point ()
+  (interactive)
+  (fg/change-num-at-point '-))
+
+
 (provide 'init-editing-utils)
