@@ -1,5 +1,3 @@
-(autoload 'turn-on-pretty-mode "pretty-mode")
-
 ;; ----------------------------------------------------------------------------
 ;; Paredit
 ;; ----------------------------------------------------------------------------
@@ -79,8 +77,7 @@
   (setq whitespace-style '(face tabs spaces trailing lines space-before-tab::space newline indentation::space empty space-after-tab::space space-mark tab-mark newline-mark))
   (add-hook 'before-save-hook 'whitespace-cleanup nil 'local)
   (enable-paredit-mode)
-  (turn-on-eldoc-mode)
-  (turn-on-pretty-mode))
+  (turn-on-eldoc-mode))
 
 
 (defun smp-emacs-lisp-setup ()
