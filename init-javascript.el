@@ -104,6 +104,11 @@
   (interactive)
   (comint-send-string (inferior-moz-process) "BrowserReload()"))
 
+(defun fg/install-reload-browser-on-save-hook ()
+  (interactive)
+  (make-variable-buffer-local 'before-save-hook)
+  (add-hook 'before-save-hook 'fg/send-browser-reload))
+
 (add-hook 'js-mode-hook
           (lambda ()
             (make-variable-buffer-local 'tab-width)

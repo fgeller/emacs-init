@@ -162,4 +162,6 @@
 (global-set-key [remap kill-word] 'fg/kill-word)
 (global-set-key [remap backward-kill-word] 'fg/backward-kill-word)
 
+(define-key js2-mode-map (kbd "C-c s") 'fg/install-reload-browser-on-save-hook)
+
 (provide 'init-keybindings)
