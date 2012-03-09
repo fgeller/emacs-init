@@ -20,7 +20,6 @@
 (autoload 'moz-minor-mode "moz" "MozRepl Minor Mode" t)
 
 ;; Mode specific configurations follow.
-
 (add-hook 'js3-mode-hook
           (lambda ()
             (make-variable-buffer-local 'tab-width)
