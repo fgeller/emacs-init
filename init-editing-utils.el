@@ -264,11 +264,21 @@ the character typed."
 (require 'enclose)
 
 ;; http://emacs-fu.blogspot.com/2011/08/customizing-mode-line.html
+;; more variables:
+;; mode-line-mule-info
+;; mode-line-client
+;; mode-line-modified
+;; mode-line-remote
+;; mode-line-frame-identification
+;; mode-line-buffer-identification
+;; mode-line-position
+;; mode-line-modes
 
 (setq-default
  mode-line-format
  (list
   " "
+  mode-line-remote
   '(:eval (propertize "%b" 'face 'mode-line-buffer-id
                       'help-echo (buffer-file-name)))
   '(:eval (when buffer-read-only
@@ -288,8 +298,21 @@ the character typed."
   "/"
   (propertize "%I" 'face 'mode-line) ;; buffer size
   " "
-  '(:eval (propertize "%m" 'face 'mode-line   ;; major mode
-                      'help-echo buffer-file-coding-system))
+  '(:propertize
+    ("" mode-name)
+    help-echo "Major mode\nmouse-1: Display major mode menu\nmouse-2: Show help for major mode\nmouse-3: Toggle minor modes"
+    mouse-face
+    mode-line-highlight
+    local-map
+    (keymap
+     (mode-line keymap
+                (mouse-2 . describe-mode)
+                (down-mouse-1 menu-item "Menu Bar" ignore :filter
+                              (lambda
+                                (_)
+                                (mouse-menu-major-mode-map))))))
+  '("" mode-line-process)
+  '(vc-mode vc-mode)
   '(:eval (when (and flymake-mode-line-e-w
                      (not (string= "" flymake-mode-line-e-w))
                      (not (string= "0/0" flymake-mode-line-e-w)))
