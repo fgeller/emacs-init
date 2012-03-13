@@ -1,4 +1,4 @@
-(setq ack-and-a-half-arguments '("--ignore-dir=extjs" "--ignore-dir=env"))
+(setq ack-and-a-half-arguments '("--ignore-dir=extjs" "--ignore-dir=env" "--ignore-dir=jquery"))
 
 (autoload 'ack-and-a-half-same "ack-and-a-half" nil t)
 (autoload 'ack-and-a-half "ack-and-a-half" nil t)
