@@ -1,10 +1,34 @@
 ;; Helper library to find unbound key combinations.
 (require 'unbound)
+(require 'repeat)
 
 (defun fg/eshell-with-prefix ()
   (interactive)
   (setq current-prefix-arg '(4))
   (call-interactively 'eshell))
+
+;; From http://groups.google.com/group/gnu.emacs.help/browse_thread/thread/44728fda08f1ec8f?hl=en&tvc=2
+(defun make-repeatable-command (cmd)
+  "Returns a new command that is a repeatable version of CMD.
+The new command is named CMD-repeat.  CMD should be a quoted
+command.
+
+This allows you to bind the command to a compound keystroke and
+repeat it with just the final key.  For example:
+
+  (global-set-key (kbd \"C-c a\") (make-repeatable-command 'foo))
+
+will create a new command called foo-repeat.  Typing C-c a will
+just invoke foo.  Typing C-c a a a will invoke foo three times,
+and so on."
+  (fset (intern (concat (symbol-name cmd) "-repeat"))
+        `(lambda ,(help-function-arglist cmd) ;; arg list
+           ,(format "A repeatable version of `%s'." (symbol-name cmd)) ;; doc string
+           ,(interactive-form cmd) ;; interactive form
+           ;; see also repeat-message-function
+           (setq last-repeatable-command ',cmd)
+           (repeat nil)))
+  (intern (concat (symbol-name cmd) "-repeat")))
 
 (global-unset-key "\C-l")
 (defvar ctl-l-map (make-keymap)
@@ -121,7 +145,7 @@
 
 (global-set-key (kbd "C-`") 'other-window)
 (global-set-key (kbd "M-`") 'flymake-goto-next-error)
-(global-set-key (kbd "M-RET") 'er/expand-region)
+(global-set-key (kbd "C-c w") (make-repeatable-command 'er/expand-region))
 (global-set-key (kbd "M-y") 'anything-show-kill-ring)
 
 (global-set-key (kbd "s-<up>") 'backward-up-sexp)
