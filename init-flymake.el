@@ -1,5 +1,5 @@
-(setq flymake-gui-warnings-enabled nil)
-(setq flymake-start-syntax-check-on-newline nil)
+(setq flymake-gui-warnings-enabled t)
+(setq flymake-start-syntax-check-on-newline t)
 
 ;; Stop flymake from breaking when ruby-mode is invoked by mmm-mode,
 ;; at which point buffer-file-name is nil
@@ -14,5 +14,8 @@ Return nil if we cannot, non-nil if we can."
 
 (require 'flymake)
 (require 'flymake-cursor)
+
+;; I want my copies in the system temp dir.
+(setq flymake-run-in-place nil)
 
 (provide 'init-flymake)
