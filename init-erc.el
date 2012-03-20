@@ -11,7 +11,7 @@
       (todochiku-message (format "ERC message from: %s" nick)
                          msg
                          (todochiku-icon 'irc)
-                         t)))
+                         nil)))
   nil)
 
 (defun fg/notify-nick-mentioned (match-type nick msg)
