@@ -162,6 +162,8 @@ and so on."
 (global-set-key (kbd "s-k") 'kill-sexp)
 (global-set-key (kbd "s-t") 'transpose-sexps)
 
+(global-set-key (kbd "C-h t") 'describe-face)
+
 (when *is-a-mac*
   (setq mac-command-modifier 'super)
   (setq mac-option-modifier 'meta)
