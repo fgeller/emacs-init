@@ -7,6 +7,10 @@
       notmuch-show-logo nil
       notmuch-crypto-process-mime t)
 
+(setq notmuch-saved-searches
+      '(("inbox" . "tag:inbox")
+        ("i/inbox" . "tag:i/inbox")
+        ("unread" . "tag:unread")))
 
 (require 'message)
 (setq user-full-name "Felix Geller")
