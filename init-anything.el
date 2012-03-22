@@ -44,6 +44,12 @@
    " *fg/anything-info-pages*"))
 
 
+(defun fg/anything-contact ()
+  (interactive)
+  (anything-other-buffer
+   '(fg/anything-goobook-contact-search)
+   "*fg/anything-contacts*"))
+
 ;; taken from full-ack.el
 (defvar fg/project-root-file-patterns
   '(".project\\'" ".xcodeproj\\'" ".sln\\'" "\\`Project.ede\\'"
@@ -79,6 +85,20 @@
     (requires-pattern . 4)
     (delayed))
   "Source for searching matching files recursively.")
+
+
+(defun fg/anything-insert-contact (candidate)
+  (insert candidate))
+
+(defvar fg/anything-goobook-contact-search
+  '((name . "Contact Search")
+    (candidates . (lambda ()
+                    (start-process-shell-command "contact-search-process" nil
+                                                 "goobook-notmuch" anything-pattern)))
+    (type . string)
+    (action . (("Insert" . fg/anything-insert-contact)))
+    (requires-pattern . 2))
+  "Source for searching contact via goobook.")
 
 (defun fg/anything-rgrep ()
   (interactive)

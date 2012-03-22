@@ -39,6 +39,7 @@ and so on."
 (define-key ctl-l-map "A"		'ack)
 (define-key ctl-l-map "aa"		'fg/anything-jump)
 (define-key ctl-l-map "ab"		'anything-browse-code)
+(define-key ctl-l-map "ac"		'fg/anything-contact)
 (define-key ctl-l-map "ad"		'anything-c-apropos)
 (define-key ctl-l-map "af"		'anything-find-files)
 (define-key ctl-l-map "ag"		'fg/anything-rgrep)
@@ -187,5 +188,9 @@ and so on."
 (global-set-key [remap backward-kill-word] 'fg/backward-kill-word)
 
 (define-key js2-mode-map (kbd "C-c s") 'fg/install-reload-browser-on-save-hook)
+
+(define-key message-mode-map (kbd "C-c C-b") 'fg/goto-message-body)
+(define-key notmuch-search-mode-map (kbd "Q") 'fg/quit-untag-inbox-unread)
+(define-key notmuch-hello-mode-map "g" 'notmuch-hello-update)
 
 (provide 'init-keybindings)
