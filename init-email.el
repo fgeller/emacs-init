@@ -23,7 +23,8 @@
  ;; http://notmuchmail.org/emacstips/#index12h2
  mail-specify-envelope-from t
  message-sendmail-envelope-from 'header
- mail-envelope-from 'header)
+ mail-envelope-from 'header
+ message-signature "Felix Geller")
 
 (add-hook 'message-setup-hook 'mml-secure-message-sign-pgpmime)
 (add-hook 'message-mode-hook 'turn-on-auto-fill)
