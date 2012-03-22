@@ -27,7 +27,17 @@
  gnus-inhibit-images t
  message-signature "Felix Geller")
 
-(add-hook 'message-setup-hook 'mml-secure-message-sign-pgpmime)
+(defun fg/insert-message-sign-pgpmime ()
+  (interactive)
+  (save-excursion
+    (beginning-of-buffer)
+    (re-search-forward "--text follows this line--" (point-max) t)
+    (end-of-line)
+    (newline)
+   (insert "<#secure method=pgpmime mode=sign>")
+   (newline)))
+
+(add-hook 'message-setup-hook 'fg/insert-message-sign-pgpmime)
 (add-hook 'message-mode-hook 'turn-on-auto-fill)
 
 (defun fg/goto-message-body ()
