@@ -7,9 +7,6 @@
       notmuch-show-logo nil
       notmuch-crypto-process-mime t)
 
-(require 'notmuch-address)
-(setq notmuch-address-command "~/bin/goobook-notmuch")
-(notmuch-address-message-insinuate)
 
 (require 'message)
 (setq user-full-name "Felix Geller")
