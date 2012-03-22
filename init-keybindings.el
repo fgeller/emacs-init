@@ -138,6 +138,18 @@ and so on."
 (define-key ctl-l-map "<"		'beginning-of-buffer)
 (define-key ctl-l-map ">"		'end-of-buffer)
 
+(global-set-key (kbd "M-U") 'upcase-word)
+(global-unset-key (kbd "M-u"))
+(let ((binding-char-pairs `((,(kbd "M-u a") . "ä")
+                            (,(kbd "M-u o") . "ö")
+                            (,(kbd "M-u u") . "ü")
+                            (,(kbd "M-u A") . "Ä")
+                            (,(kbd "M-u O") . "Ö")
+                            (,(kbd "M-u U") . "Ü"))))
+  (dolist (pair binding-char-pairs)
+    (define-key global-map (car pair)
+      (lexical-let ((char (cdr pair))) (lambda () (interactive) (insert char))))))
+
 (global-set-key (kbd "M-F") 'forward-whitespace)
 (global-set-key (kbd "M-B") 'fg/backward-whitespace)
 (global-set-key (kbd "C-<") 'mark-previous-like-this)
