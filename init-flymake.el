@@ -1,4 +1,5 @@
-(setq flymake-gui-warnings-enabled t)
+;; don't want this on Mac OS X -- http://koansys.com/tech/emacs-hangs-on-flymake-under-os-x
+(setq flymake-gui-warnings-enabled nil)
 (setq flymake-start-syntax-check-on-newline t)
 
 ;; Stop flymake from breaking when ruby-mode is invoked by mmm-mode,
