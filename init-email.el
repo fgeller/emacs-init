@@ -24,6 +24,7 @@
  mail-specify-envelope-from t
  message-sendmail-envelope-from 'header
  mail-envelope-from 'header
+ gnus-inhibit-images t
  message-signature "Felix Geller")
 
 (add-hook 'message-setup-hook 'mml-secure-message-sign-pgpmime)
