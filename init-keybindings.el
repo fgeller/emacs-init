@@ -108,7 +108,7 @@ and so on."
 (define-key ctl-l-map "tp"		'multi-term-prev)
 (define-key ctl-l-map "tt"		'multi-term)
 (define-key ctl-l-map "ui"		'ucs-insert)
-(define-key ctl-l-map "U"		'browse-url)
+(define-key ctl-l-map "U"		'browse-url-default-macosx-browser)
 (define-key ctl-l-map "v="		'vc-diff)
 (define-key ctl-l-map "vd"		'vc-dir)
 (define-key ctl-l-map "vD"		'vc-delete-file)
