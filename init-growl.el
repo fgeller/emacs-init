@@ -1,4 +1,3 @@
-(require 'todochiku) ;; growl notifications when compilation finishes
 (setq todochiku-icons-directory (expand-file-name "~/.emacs.d/site-lisp/todochiku-icons"))
 (setq todochiku-compile-message nil)
 (setq todochiku-tooltip-too t)
@@ -11,5 +10,7 @@
 
 (add-hook 'compilation-finish-functions
           'fg/notify-finished-compilation)
+
+(require 'todochiku) ;; growl notifications when compilation finishes
 
 (provide 'init-growl)
