@@ -121,10 +121,6 @@
              indent-tabs-mode t
              whitespace-style '(face tabs spaces trailing lines space-before-tab::tab newline indentation::tab empty space-after-tab::tab space-mark tab-mark newline-mark))))
 
-;; On-the-fly syntax checking
-(eval-after-load 'js
-  '(add-hook 'js-mode-hook 'flymake-jslint-load))
-
 (setq inferior-js-program-command "/usr/local/bin/node")
 (defun add-inferior-js-keys ()
   (local-set-key "\C-x\C-e" 'js-send-last-sexp)
