@@ -7,7 +7,7 @@
  bookmark-default-file "~/.emacs.d/.bookmarks.el"
  buffers-menu-max-size 30
  case-fold-search t
- compilation-scroll-output nil
+ compilation-scroll-output t
  ediff-split-window-function 'split-window-horizontally
  ediff-window-setup-function 'ediff-setup-windows-plain
  grep-highlight-matches t
