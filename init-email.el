@@ -64,4 +64,12 @@
         (epa-decrypt-region start end)))))
 (add-hook 'notmuch-show-hook 'fg/decrypt-inlined-messages-in-buffer)
 
+;; use open for PDFs (rather than gv) and images (rather than display)
+(setcdr (assoc 'viewer (cdr (assoc "pdf" (assoc "application"  mailcap-mime-data))))
+        "open %s")
+(setcdr (assoc 'viewer (cdr (assoc ".*" (assoc "image"  mailcap-mime-data))))
+        "open %s")
+(setcdr (assoc 'test (cdr (assoc ".*" (assoc "image"  mailcap-mime-data))))
+        'window-system)
+
 (provide 'init-email)
