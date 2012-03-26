@@ -33,7 +33,7 @@
     (delete-other-windows)
     (funcall (split-window-func-with-other-buffer 'split-window-vertically))))
 
+(setq default-frame-alist '((vertical-scroll-bars) (left-fringe . 1) (right-fringe . 0)))
 
-(setq default-frame-alist '((vertical-scroll-bars) (left-fringe . 5) (right-fringe . 0)))
 
 (provide 'init-windows)
