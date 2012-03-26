@@ -4,7 +4,7 @@
 (setq compilation-finish-functions nil)
 
 (defun fg/notify-finished-compilation (buf msg)
-  (todochiku-message "*compilation*"
+  (todochiku-message (format "Compilation in %s:" buf)
                      msg
                      (todochiku-icon 'emacs)))
 
