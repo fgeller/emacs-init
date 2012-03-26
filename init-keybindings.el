@@ -127,6 +127,7 @@ and so on."
 (define-key ctl-l-map "wp"		'winring-prev-configuration)
 (define-key ctl-l-map "wr"		'winring-rename-configuration)
 (define-key ctl-l-map "wb"		'winring-submit-bug-report)
+(define-key ctl-l-map "wt"		'fg/rotate-windows)
 (define-key ctl-l-map "wv"		'winring-version)
 (define-key ctl-l-map "xx"		'execute-extended-command)
 (define-key ctl-l-map "xb"		'eval-buffer)
