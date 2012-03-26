@@ -2,6 +2,11 @@
 (setq erc-hide-list '("JOIN" "PART" "QUIT" "NICK"))
 (setq erc-auto-query 'frame)
 
+(defun fg/connect-to-bitlbee ()
+  (interactive)
+  (erc :server "localhost"
+       :nick "me"))
+
 (defun fg/notify-privmsg (proc parsed)
   (let ((nick (car (erc-parse-user (erc-response.sender parsed))))
         (target (car (erc-response.command-args parsed)))
