@@ -89,6 +89,7 @@ and so on."
 (define-key ctl-l-map "hv"		'describe-variable)
 (define-key ctl-l-map "hw"		'where-is)
 (define-key ctl-l-map "h\S-tab" 'icicle-complete-keys)
+(define-key ctl-l-map "il"              'fg/connect-to-bitlbee)
 (define-key ctl-l-map "k"		'kill-whole-line)
 (define-key ctl-l-map "l"		'goto-line)
 (define-key ctl-l-map "n"		'notmuch)
