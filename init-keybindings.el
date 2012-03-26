@@ -157,6 +157,12 @@ and so on."
 (global-set-key (kbd "C-x r t") 'inline-string-rectangle)
 
 (global-set-key (kbd "C-`") 'other-window)
+
+(global-set-key "\C-x2" (split-window-func-with-other-buffer 'split-window-vertically))
+(global-set-key "\C-x3" (split-window-func-with-other-buffer 'split-window-horizontally))
+(global-set-key "\C-x|" 'split-window-horizontally-instead)
+(global-set-key "\C-x_" 'split-window-vertically-instead)
+
 (global-set-key (kbd "M-`") 'flymake-goto-next-error)
 (global-set-key (kbd "C-c w") (make-repeatable-command 'er/expand-region))
 (global-set-key (kbd "M-y") 'anything-show-kill-ring)

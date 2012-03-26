@@ -17,9 +17,6 @@
       (funcall s-f)
       (set-window-buffer (next-window) (other-buffer)))))
 
-(global-set-key "\C-x2" (split-window-func-with-other-buffer 'split-window-vertically))
-(global-set-key "\C-x3" (split-window-func-with-other-buffer 'split-window-horizontally))
-
 
 ;;----------------------------------------------------------------------------
 ;; Rearrange split windows
@@ -36,8 +33,6 @@
     (delete-other-windows)
     (funcall (split-window-func-with-other-buffer 'split-window-vertically))))
 
-(global-set-key "\C-x|" 'split-window-horizontally-instead)
-(global-set-key "\C-x_" 'split-window-vertically-instead)
 
 (setq default-frame-alist '((vertical-scroll-bars) (left-fringe . 5) (right-fringe . 0)))
 
