@@ -347,6 +347,18 @@ This emulates Vim's `dt` behavior, which rocks."
                  (- (point) 1)))
   (backward-char 1))
 
+;; http://www.reddit.com/r/emacs/comments/nfj0e/emacs_wizards_how_do_you_move_about_in_source_code/
+(defun fg/jump-to-next-char (c &optional count)
+  "Jump forward or backward to a specific character.  With a
+count, move that many copies of the character."
+  (interactive "cchar: \np")
+  (when (string= (string c) (buffer-substring (point) (+ 1 (point))))
+    (setq count (+ 1 count)))
+  (and
+   (search-forward (string c) nil t count)
+   (> count 0)
+   (backward-char)))
+
 ;; fix kill-word
 (defun fg/kill-word (arg)
   "Special version of kill-word which swallows spaces separate from words"
