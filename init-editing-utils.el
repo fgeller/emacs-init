@@ -327,11 +327,10 @@ the character typed."
               (let ((error-str (match-string 1 flymake-mode-line-e-w))
                     (warn-str (match-string 2 flymake-mode-line-e-w)))
                 (concat
-                 " fm["
+                 " τ:"
                  (propertize error-str 'face 'flymake-errline)
-                 "/"
+                 ","
                  (propertize warn-str 'face 'flymake-warnline)
-                 "]"
                  )))))
   ))
 
