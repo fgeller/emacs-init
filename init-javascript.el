@@ -65,40 +65,40 @@
              )
             ))
 
-(add-hook 'js2-mode-hook
-          (lambda ()
-            (make-variable-buffer-local 'tab-width)
-            (make-variable-buffer-local 'indent-tabs-mode)
-            (make-variable-buffer-local 'whitespace-style)
-            (wrap-region-mode 1)
-            (hs-minor-mode 1)
-            (rainbow-mode 1)
-            (moz-minor-mode 1)
-            (setq mode-name "js2")
-            (add-hook 'before-save-hook 'whitespace-cleanup nil 'local)
-            (setq js2-use-font-lock-faces t)
-            (setq js2-mode-must-byte-compile nil)
-            (setq js2-basic-offset preferred-javascript-indent-level)
-            (setq js2-indent-on-enter-key t)
-            (setq js2-auto-indent-p t)
-            (setq js2-enter-indents-newline t)
-            (setq js2-bounce-indent-p nil)
-            (setq js2-auto-insert-catch-block t)
-            (setq js2-cleanup-whitespace t)
-            (setq js2-global-externs '(Ext console))
-            (setq js2-highlight-level 3)
-            (setq js2-mirror-mode t) ; conflicts with autopair
-            (setq js2-mode-escape-quotes t) ; t disables
-            (setq js2-mode-squeeze-spaces t)
-            (setq js2-pretty-multiline-decl-indentation-p t)
-            (setq js2-consistent-level-indent-inner-bracket-p t)
-            (setq
-             tab-width 2
-             js2-basic-offset 2
-             indent-tabs-mode t
-             whitespace-style '(face tabs spaces trailing lines space-before-tab::tab newline indentation::tab empty space-after-tab::tab space-mark tab-mark newline-mark)
-             )
-            ))
+(defun fg/js2-mode-initialization ()
+  (make-variable-buffer-local 'tab-width)
+  (make-variable-buffer-local 'indent-tabs-mode)
+  (make-variable-buffer-local 'whitespace-style)
+  (wrap-region-mode 1)
+  (hs-minor-mode 1)
+  (rainbow-mode 1)
+  (moz-minor-mode 1)
+  (setq mode-name "js2")
+  (add-hook 'before-save-hook 'whitespace-cleanup nil 'local)
+  (setq js2-use-font-lock-faces t)
+  (setq js2-mode-must-byte-compile nil)
+  (setq js2-basic-offset preferred-javascript-indent-level)
+  (setq js2-indent-on-enter-key t)
+  (setq js2-auto-indent-p t)
+  (setq js2-enter-indents-newline t)
+  (setq js2-bounce-indent-p nil)
+  (setq js2-auto-insert-catch-block t)
+  (setq js2-cleanup-whitespace t)
+  (setq js2-global-externs '(Ext console))
+  (setq js2-highlight-level 3)
+  (setq js2-mirror-mode t) ; conflicts with autopair
+  (setq js2-mode-escape-quotes t) ; t disables
+  (setq js2-mode-squeeze-spaces t)
+  (setq js2-pretty-multiline-decl-indentation-p t)
+  (setq js2-consistent-level-indent-inner-bracket-p t)
+  (setq
+   tab-width 2
+   js2-basic-offset 2
+   indent-tabs-mode t
+   whitespace-style '(face tabs spaces trailing lines space-before-tab::tab newline indentation::tab empty space-after-tab::tab space-mark tab-mark newline-mark)
+   ))
+
+(add-hook 'js2-mode-hook 'fg/js2-mode-initialization)
 
 (defun fg/send-browser-reload ()
   (interactive)
