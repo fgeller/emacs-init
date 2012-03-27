@@ -85,6 +85,7 @@
             "py-mode"
           "python"))
   (wrap-region-mode 1)
+  (camelCase-mode 1)
   ;; pylookup
   (make-local-variable browse-url-browser-function)
   (setq browse-url-browser-function 'w3m)

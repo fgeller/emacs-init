@@ -72,6 +72,7 @@
   (wrap-region-mode 1)
   (hs-minor-mode 1)
   (rainbow-mode 1)
+  (camelCase-mode 1)
   (moz-minor-mode 1)
   (setq mode-name "js2")
   (add-hook 'before-save-hook 'whitespace-cleanup nil 'local)

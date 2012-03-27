@@ -263,6 +263,9 @@ the character typed."
 
 (require 'enclose)
 
+(require 'camelCase)
+
+
 ;; http://emacs-fu.blogspot.com/2011/08/customizing-mode-line.html
 ;; more variables:
 ;; mode-line-mule-info
