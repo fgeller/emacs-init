@@ -36,6 +36,9 @@ With a prefix argument, makes a private paste."
           ("file_name[gistfile1]" . ,name)
           ("file_contents[gistfile1]" . ,(buffer-substring begin end)))))))
 
+(defun fg/magit-log-edit-initialization ()
+  (auto-fill-mode 1))
 
+(add-hook 'magit-log-edit-mode-hook 'fg/magit-log-edit-initialization)
 
 (provide 'init-git)
