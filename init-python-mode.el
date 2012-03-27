@@ -79,23 +79,24 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Buffer local variables and minor modes ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-hook 'python-mode-hook
-          (lambda ()
-            (setq mode-name
-                  (if (eq "python-mode" preferred-python-mode)
-                      "py-mode"
-                    "python"))
-            (wrap-region-mode 1)
-            ;; pylookup
-            (make-local-variable browse-url-browser-function)
-            (setq browse-url-browser-function 'w3m)
-            ;; update ctags
-            (setq ctags-update-delay-seconds (* 5 60))
-            (ctags-update-minor-mode 1)
-            ;; flymake
-            (unless (eq buffer-file-name nil)
-              (flymake-mode 1))
-            ;; whitespace cleanup
-            (add-hook 'before-save-hook 'whitespace-cleanup nil 'local)))
+(defun fg/python-mode-initialization ()
+  (setq mode-name
+        (if (eq "python-mode" preferred-python-mode)
+            "py-mode"
+          "python"))
+  (wrap-region-mode 1)
+  ;; pylookup
+  (make-local-variable browse-url-browser-function)
+  (setq browse-url-browser-function 'w3m)
+  ;; update ctags
+  (setq ctags-update-delay-seconds (* 5 60))
+  (ctags-update-minor-mode 1)
+  ;; flymake
+  (unless (eq buffer-file-name nil)
+    (flymake-mode 1))
+  ;; whitespace cleanup
+  (add-hook 'before-save-hook 'whitespace-cleanup nil 'local))
+
+(add-hook 'python-mode-hook 'fg/python-mode-initialization)
 
 (provide 'init-python-mode)
