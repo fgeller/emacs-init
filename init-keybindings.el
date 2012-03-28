@@ -198,6 +198,8 @@ and so on."
 
 (define-key message-mode-map (kbd "C-c C-b") 'fg/goto-message-body)
 (define-key notmuch-search-mode-map (kbd "Q") 'fg/quit-untag-inbox-unread)
+(define-key notmuch-search-mode-map (kbd "i") 'fg/notmuch-mark-read)
+(define-key notmuch-search-mode-map (kbd "I") 'fg/notmuch-mark-read-and-drop-inbox-tag)
 (define-key notmuch-hello-mode-map "g" 'notmuch-hello-update)
 
 (provide 'init-keybindings)

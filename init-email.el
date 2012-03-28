@@ -48,21 +48,18 @@
 
 (defun fg/quit-untag-inbox-unread ()
   (interactive)
-  (notmuch-search-operate-all "-unread -inbox")
+  (notmuch-search-operate-all "-unread -inbox -i/inbox")
   (notmuch-search-quit))
 
-(defun fg/decrypt-inlined-messages-in-buffer ()
-  (save-excursion
-    (let ((prefix "-----BEGIN PGP MESSAGE-----")
-          (suffix "-----END PGP MESSAGE-----")
-          start end)
-      (goto-char (point-max))
-      (while (re-search-backward suffix (point-min) t)
-        (setq end (point))
-        (re-search-backward prefix)
-        (setq start (point))
-        (epa-decrypt-region start end)))))
-(add-hook 'notmuch-show-hook 'fg/decrypt-inlined-messages-in-buffer)
+(defun fg/notmuch-mark-read ()
+  (interactive
+   (notmuch-search-operate-all "-unread")
+   (notmuch-search-quit)))
+
+(defun fg/notmuch-mark-read-and-drop-inbox-tag ()
+  (interactive
+   (notmuch-search-operate-all "-unread -inbox -i/inbox")
+   (notmuch-search-quit)))
 
 ;; use open for PDFs (rather than gv) and images (rather than display)
 (setcdr (assoc 'viewer (cdr (assoc "pdf" (assoc "application"  mailcap-mime-data))))
