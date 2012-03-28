@@ -71,6 +71,8 @@ and so on."
 (define-key ctl-l-map "G"		'rgrep)
 (define-key ctl-l-map "gfn"		'flymake-goto-next-error)
 (define-key ctl-l-map "gfp"		'flymake-goto-prev-error)
+(define-key ctl-l-map "if"              'fg/connect-to-freenode)
+(define-key ctl-l-map "ii"              'fg/connect-to-iptego)
 (define-key ctl-l-map "il"              'fg/connect-to-bitlbee)
 (define-key ctl-l-map "k"		'kill-whole-line)
 (define-key ctl-l-map "l"		'goto-line)
