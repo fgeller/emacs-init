@@ -263,7 +263,7 @@ the character typed."
 
 (require 'enclose)
 
-(require 'camelCase)
+(autoload 'camelCase-mode "camelCase-mode" nil t)
 
 
 ;; http://emacs-fu.blogspot.com/2011/08/customizing-mode-line.html
