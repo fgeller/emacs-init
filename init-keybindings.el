@@ -202,4 +202,11 @@ and so on."
 (define-key notmuch-search-mode-map (kbd "I") 'fg/notmuch-mark-read-and-drop-inbox-tag)
 (define-key notmuch-hello-mode-map "g" 'notmuch-hello-update)
 
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(define-key global-map "\C-cc" 'org-capture)
+(define-key global-map "\C-cb" 'org-iswitchb)
+(define-key global-map "\C-c\C-xf" 'org-footnote-action)
+
+
 (provide 'init-keybindings)
