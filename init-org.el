@@ -86,15 +86,15 @@
 
 (setq org-agenda-custom-commands
       '(("d" . "Completed / archived items")
-    ("dt" "[t]oday"
-     tags "ARCHIVE_TIME>=\"<today>\""
-     ((org-agenda-archives-mode t)))
-    ("dy" "[y]esterday"
-     tags "ARCHIVE_TIME>=\"<-1d>\"&ARCHIVE_TIME<\"<today>\""
-     ((org-agenda-archives-mode t)))
-    ("dw" "[w]eek"
-     tags "ARCHIVE_TIME>=\"<-1w>\""
-     ((org-agenda-archives-mode t)))))
+        ("dt" "[t]oday"
+         tags "ARCHIVE_TIME>=\"<today>\""
+         ((org-agenda-archives-mode t)))
+        ("dy" "[y]esterday"
+         tags "ARCHIVE_TIME>=\"<-1d>\"&ARCHIVE_TIME<\"<today>\""
+         ((org-agenda-archives-mode t)))
+        ("dw" "[w]eek"
+         tags "ARCHIVE_TIME>=\"<-1w>\""
+         ((org-agenda-archives-mode t)))))
 
 (eval-after-load 'org
   '(progn
