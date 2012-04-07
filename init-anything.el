@@ -9,6 +9,7 @@
   (interactive)
   (anything-other-buffer
    '(anything-c-source-buffers-list
+     anything-c-source-bookmarks
      anything-c-source-recentf
      fg/anything-c-source-file-search
      anything-c-source-buffer-not-found)
