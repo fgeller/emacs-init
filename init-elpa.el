@@ -13,6 +13,7 @@
         (require-package package min-version t)))))
 
 
+(require-package 'bookmark+)
 (require-package 'json)
 (require-package 'project-local-variables)
 (require-package 'paredit)
