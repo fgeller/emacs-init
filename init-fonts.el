@@ -33,6 +33,6 @@
 
 
 (set-face-attribute 'default nil
-                    :family "Inconsolata" :height 180 :weight 'normal)
+                    :family "Myriad Pro" :height 180 :weight 'normal)
 
 (provide 'init-fonts)
