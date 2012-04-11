@@ -9,8 +9,7 @@
 
 (setq notmuch-saved-searches
       '(("inbox" . "tag:inbox")
-        ("i/inbox" . "tag:i/inbox")
-        ("unread" . "tag:unread")))
+        ("i/inbox" . "tag:i/inbox")))
 
 (require 'message)
 (setq user-full-name "Felix Geller")
