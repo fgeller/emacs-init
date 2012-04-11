@@ -131,7 +131,6 @@
 ;; Cut/copy the current line if no region is active
 ;;----------------------------------------------------------------------------
 (whole-line-or-region-mode t)
-(diminish 'whole-line-or-region-mode)
 (make-variable-buffer-local 'whole-line-or-region-mode)
 
 (defun suspend-mode-during-cua-rect-selection (mode-name)
