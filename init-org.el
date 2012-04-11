@@ -1,3 +1,5 @@
+(setq calendar-week-start-day 1)
+
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 
