@@ -10,27 +10,6 @@
 
 (add-hook 'paredit-mode-hook 'maybe-map-paredit-newline)
 
-(eval-after-load 'paredit
-  '(progn
-     ;; These are handy everywhere, not just in lisp modes
-     (global-set-key (kbd "M-(") 'paredit-wrap-round)
-     (global-set-key (kbd "M-[") 'paredit-wrap-square)
-     (global-set-key (kbd "M-{") 'paredit-wrap-curly)
-
-     (global-set-key (kbd "M-)") 'paredit-close-round-and-newline)
-     (global-set-key (kbd "M-]") 'paredit-close-square-and-newline)
-     (global-set-key (kbd "M-}") 'paredit-close-curly-and-newline)
-
-     (dolist (binding (list (kbd "C-<left>") (kbd "C-<right>")
-                            (kbd "C-M-<left>") (kbd "C-M-<right>")))
-       (define-key paredit-mode-map binding nil))
-
-     ;; Disable kill-sentence, which is easily confused with the kill-sexp
-     ;; binding, but doesn't preserve sexp structure
-     (define-key paredit-mode-map [remap kill-sentence] nil)
-     (define-key paredit-mode-map [remap backward-kill-sentence] nil)))
-
-
 ;; Compatibility with other modes
 
 ;; (defadvice enable-paredit-mode (before disable-autopair activate)
