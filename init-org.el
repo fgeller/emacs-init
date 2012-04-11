@@ -45,30 +45,24 @@
 (setq org-clock-out-remove-zero-time-clocks t)
 
 ;; Show iCal calendars in the org agenda
-(when *is-a-mac*
-  (eval-after-load "org"
-    '(if *is-a-mac* (require 'org-mac-iCal)))
-  (setq org-agenda-include-diary t)
+(eval-after-load "org"
+  '(require 'org-mac-iCal))
+(setq org-agenda-include-diary t)
 
-  (setq org-agenda-custom-commands
-        '(("I" "Import diary from iCal" agenda ""
-           ((org-agenda-mode-hook
-             (lambda ()
-               (org-mac-iCal)))))))
 
-  (add-hook 'org-agenda-cleanup-fancy-diary-hook
-            (lambda ()
-              (goto-char (point-min))
-              (save-excursion
-                (while (re-search-forward "^[a-z]" nil t)
-                  (goto-char (match-beginning 0))
-                  (insert "0:00-24:00 ")))
-              (while (re-search-forward "^ [a-z]" nil t)
+(add-hook 'org-agenda-cleanup-fancy-diary-hook
+          (lambda ()
+            (goto-char (point-min))
+            (save-excursion
+              (while (re-search-forward "^[a-z]" nil t)
                 (goto-char (match-beginning 0))
-                (save-excursion
-                  (re-search-backward "^[0-9]+:[0-9]+-[0-9]+:[0-9]+ " nil t))
-                (insert (match-string 0)))))
-  )
+                (insert "0:00-24:00 ")))
+            (while (re-search-forward "^ [a-z]" nil t)
+              (goto-char (match-beginning 0))
+              (save-excursion
+                (re-search-backward "^[0-9]+:[0-9]+-[0-9]+:[0-9]+ " nil t))
+              (insert (match-string 0)))))
+
 
 (setq org-capture-templates
       '(("t" "Todo"
@@ -88,7 +82,15 @@
          ((org-agenda-archives-mode t)))
         ("dw" "[w]eek"
          tags "ARCHIVE_TIME>=\"<-1w>\""
-         ((org-agenda-archives-mode t)))))
+         ((org-agenda-archives-mode t)))
+        ("I" "Import diary from iCal" agenda ""
+         ((org-agenda-mode-hook
+           (lambda ()
+             (org-mac-iCal)))))
+        ("w" . "Show work related tasks only")
+        ("wt" "[t]odo" tags-todo "+iptego"
+         ((org-agenda-ndays 7)))
+        ("wa" "[a]ll" tags "+iptego")))
 
 (eval-after-load 'org
   '(progn
