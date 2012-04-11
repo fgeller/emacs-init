@@ -313,7 +313,11 @@ the character typed."
                               (lambda
                                 (_)
                                 (mouse-menu-major-mode-map))))))
-  '("" mode-line-process)
+  '(:eval
+    (cond
+     ((string= ":exit [2]" mode-line-process) (propertize " x" 'face 'error))
+     ((string= ":exit [0]" mode-line-process) " ✓")
+     (t mode-line-process)))
   '(vc-mode vc-mode)
   '(:eval (when (and flymake-mode-line-e-w
                      (not (string= "" flymake-mode-line-e-w))
