@@ -266,6 +266,8 @@ the character typed."
 
 (require 'ace-jump-mode)
 
+(require 'saaxy)
+
 ;; http://emacs-fu.blogspot.com/2011/08/customizing-mode-line.html
 ;; more variables:
 ;; mode-line-mule-info
