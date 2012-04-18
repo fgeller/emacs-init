@@ -31,7 +31,7 @@
  blink-matching-paren t
  electric-pair-mode nil
  electric-indent-mode nil
- scroll-conservatively 0
+ browse-url-browser-function 'browse-url-default-macosx-browser
  )
 
 (add-hook 'find-file-hooks 'goto-address-prog-mode)
