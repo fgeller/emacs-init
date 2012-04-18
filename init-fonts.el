@@ -35,4 +35,16 @@
 (set-face-attribute 'default nil
                     :family "Myriad Pro" :height 180 :weight 'normal)
 
+(add-hook 'calendar-mode-hook
+          (lambda ()
+            (variable-pitch-mode t)
+            (set-face-attribute 'variable-pitch nil
+                    :family "Menlo" :height 150 :weight 'normal)))
+
+(add-hook 'notmuch-hello-mode-hook
+          (lambda ()
+            (variable-pitch-mode t)
+            (set-face-attribute 'variable-pitch nil
+                    :family "Menlo" :height 150 :weight 'normal)))
+
 (provide 'init-fonts)
