@@ -33,5 +33,6 @@
 (require-package 'regex-tool)
 (require-package 'flymake-cursor)
 (require-package 'maxframe)
+(require-package 'ace-jump-mode)
 
 (provide 'init-elpa)
