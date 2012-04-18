@@ -127,6 +127,13 @@ and so on."
 (keyboard-translate ?\C-t ?\C-x)
 (keyboard-translate ?\C-x ?\C-t)
 
+(require 'key-chord)
+(require 'space-chord)
+(key-chord-mode 1)
+
+(space-chord-define-global "o" 'find-file)
+(space-chord-define-global "a" 'save-buffer)
+(space-chord-define-global "e" 'ace-jump-mode)
 (global-set-key (kbd "M-U") 'upcase-word)
 (global-unset-key (kbd "M-u"))
 (let ((binding-char-pairs `((,(kbd "M-u a") . "ä")
