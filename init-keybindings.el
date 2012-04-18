@@ -123,6 +123,9 @@ and so on."
 (define-key ctl-l-map "%"		'goto-match-paren)
 (define-key ctl-l-map "<"		'beginning-of-buffer)
 (define-key ctl-l-map ">"		'end-of-buffer)
+;; Swap "C-t" and "C-x", so it's easier to type on Dvorak layout
+(keyboard-translate ?\C-t ?\C-x)
+(keyboard-translate ?\C-x ?\C-t)
 
 (global-set-key (kbd "M-U") 'upcase-word)
 (global-unset-key (kbd "M-u"))
