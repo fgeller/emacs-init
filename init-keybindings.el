@@ -151,7 +151,7 @@ and so on."
 
 (global-set-key (kbd "M-`") 'flymake-goto-next-error)
 (global-set-key (kbd "C-c w") (make-repeatable-command 'er/expand-region))
-(global-set-key (kbd "M-y") 'anything-show-kill-ring)
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
 
 (global-set-key (kbd "s-<up>") 'backward-up-sexp)
 (global-set-key (kbd "s-<down>") 'down-list)
