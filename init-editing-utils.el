@@ -264,6 +264,7 @@ the character typed."
 
 (autoload 'camelCase-mode "camelCase-mode" nil t)
 
+(require 'ace-jump-mode)
 
 ;; http://emacs-fu.blogspot.com/2011/08/customizing-mode-line.html
 ;; more variables:
