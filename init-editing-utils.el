@@ -267,6 +267,10 @@ the character typed."
 (require 'ace-jump-mode)
 
 (require 'saaxy)
+(setq saaxy-prompt (propertize "> " 'font-lock-face `(:foreground "#2075c7")))
+(defun color-for (str)
+  "#259185")
+
 (require 'jumper)
 
 
