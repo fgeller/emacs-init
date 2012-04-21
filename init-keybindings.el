@@ -37,10 +37,7 @@ and so on."
 (require 'key-chord)
 (require 'space-chord)
 (key-chord-mode 1)
-
-(space-chord-define-global "o" 'find-file)
-(space-chord-define-global "a" 'save-buffer)
-(space-chord-define-global "e" 'ace-jump-mode)
+(space-chord-define-global "a" 'ace-jump-mode)
 
 (defvar fg-map (make-keymap)
   "Keymap for local bindings and functions")
