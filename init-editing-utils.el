@@ -242,7 +242,7 @@ the character typed."
 
 (require 'inline-string-rectangle)
 (require 'mark-more-like-this)
-(require 'ctags-update)
+
 (require 'expand-region)
 (eval-after-load "text-mode"    '(require 'text-mode-expansions))
 (require 'undo-tree)

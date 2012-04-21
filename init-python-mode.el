@@ -72,9 +72,6 @@
   ;; pylookup
   (make-local-variable browse-url-browser-function)
   (setq browse-url-browser-function 'w3m)
-  ;; update ctags
-  (setq ctags-update-delay-seconds (* 5 60))
-  (ctags-update-minor-mode 1)
   ;; flymake
   (unless (eq buffer-file-name nil)
     (flymake-mode 1))
