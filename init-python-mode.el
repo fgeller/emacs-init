@@ -69,6 +69,7 @@
           "python"))
   (wrap-region-mode 1)
   (camelCase-mode 1)
+  (jumper-mode 1)
   ;; flymake
   (unless (eq buffer-file-name nil)
     (flymake-mode 1))
