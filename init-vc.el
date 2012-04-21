@@ -11,4 +11,11 @@
 
 (setq vc-annotate-very-old-color "#042028")
 
+;; http://www.gnu.org/software/tramp/#Frequently-Asked-Questions
+(setq vc-ignore-dir-regexp
+      (format "\\(%s\\)\\|\\(%s\\)"
+              vc-ignore-dir-regexp
+              tramp-file-name-regexp
+              ))
+
 (provide 'init-vc)
