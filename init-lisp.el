@@ -1,39 +1,4 @@
 ;; ----------------------------------------------------------------------------
-;; Paredit
-;; ----------------------------------------------------------------------------
-(autoload 'enable-paredit-mode "paredit")
-
-
-(defun maybe-map-paredit-newline ()
-  (unless (or (eq major-mode 'inferior-emacs-lisp-mode) (minibufferp))
-    (local-set-key (kbd "RET") 'paredit-newline)))
-
-(add-hook 'paredit-mode-hook 'maybe-map-paredit-newline)
-
-;; Compatibility with other modes
-
-;; (defadvice enable-paredit-mode (before disable-autopair activate)
-;;   (setq autopair-dont-activate t)
-;;   (autopair-mode -1))
-
-(suspend-mode-during-cua-rect-selection 'paredit-mode)
-
-
-;; Use paredit in the minibuffer
-(add-hook 'minibuffer-setup-hook 'conditionally-enable-paredit-mode)
-
-(defvar paredit-minibuffer-commands '(eval-expression
-                                      pp-eval-expression
-                                      eval-expression-with-eldoc)
-  "Interactive commands for which paredit should be enabled in the minibuffer.")
-
-(defun conditionally-enable-paredit-mode ()
-  "Enable paredit during lisp-related minibuffer commands."
-  (if (memq this-command paredit-minibuffer-commands)
-      (enable-paredit-mode)))
-
-
-;; ----------------------------------------------------------------------------
 ;; Highlight current sexp
 ;; ----------------------------------------------------------------------------
 
@@ -55,7 +20,6 @@
   (make-variable-buffer-local 'whitespace-style)
   (setq whitespace-style '(face tabs spaces trailing lines space-before-tab::space newline indentation::space empty space-after-tab::space space-mark tab-mark newline-mark))
   (add-hook 'before-save-hook 'whitespace-cleanup nil 'local)
-  (enable-paredit-mode)
   (turn-on-eldoc-mode))
 
 
