@@ -35,16 +35,23 @@
 (set-face-attribute 'default nil
                     :family "Myriad Pro" :height 180 :weight 'normal)
 
-(add-hook 'calendar-mode-hook
-          (lambda ()
-            (variable-pitch-mode t)
-            (set-face-attribute 'variable-pitch nil
-                    :family "Menlo" :height 150 :weight 'normal)))
 
-(add-hook 'notmuch-hello-mode-hook
-          (lambda ()
-            (variable-pitch-mode t)
-            (set-face-attribute 'variable-pitch nil
-                    :family "Menlo" :height 150 :weight 'normal)))
+(add-hook 'calendar-mode-hook 'fg/set-monospace-font)
+(add-hook 'notmuch-hello-mode-hook 'fg/set-monospace-font)
+
+
+(defun fg/set-varwidth-font ()
+  (interactive)
+  (variable-pitch-mode t)
+  (set-face-attribute 'variable-pitch nil
+                      :family "Myriad Pro" :height 180 :weight 'normal))
+
+(defun fg/set-monospace-font ()
+  (interactive)
+  (variable-pitch-mode t)
+  (set-face-attribute 'variable-pitch nil
+                      :family "Menlo" :height 140 :weight 'normal))
+
+
 
 (provide 'init-fonts)
