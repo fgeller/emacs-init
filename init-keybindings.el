@@ -197,8 +197,8 @@ and so on."
 
 (define-key dired-mode-map "o" 'fg/dired-open-mac)
 
-(global-set-key (kbd "M-'") 'fg/zap-to-char)
-(global-set-key (kbd "C-'") 'fg/jump-to-next-char)
+(global-set-key (kbd "M-z") 'fg/zap-to-char)
+(global-set-key (kbd "C-z") 'fg/jump-to-next-char)
 
 (global-set-key [remap kill-word] 'fg/kill-word)
 (global-set-key [remap backward-kill-word] 'fg/backward-kill-word)
