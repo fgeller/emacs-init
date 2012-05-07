@@ -37,7 +37,6 @@
 
 (require 'eldoc-eval)
 
-(add-to-list 'auto-mode-alist '("\\.emacs-project$" . emacs-lisp-mode))
 
 (define-key emacs-lisp-mode-map (kbd "C-x C-a") 'pp-macroexpand-last-sexp)
 
