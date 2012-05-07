@@ -240,4 +240,7 @@ and so on."
      (define-key paredit-mode-map [remap backward-kill-sentence] nil)))
 
 
+(define-key emacs-lisp-mode-map (kbd "C-x C-a") 'pp-macroexpand-last-sexp)
+
+
 (provide 'init-keybindings)

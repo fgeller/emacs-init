@@ -37,7 +37,4 @@
 
 (require 'eldoc-eval)
 
-
-(define-key emacs-lisp-mode-map (kbd "C-x C-a") 'pp-macroexpand-last-sexp)
-
 (provide 'init-lisp)
