@@ -34,6 +34,7 @@
  electric-pair-mode nil
  electric-indent-mode nil
  browse-url-browser-function 'browse-url-default-macosx-browser
+ enable-recursive-minibuffers t
  )
 
 (add-hook 'find-file-hooks 'goto-address-prog-mode)
