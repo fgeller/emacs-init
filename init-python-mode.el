@@ -31,7 +31,10 @@
      (define-key python-mode-map (kbd "RET") 'newline-and-indent))
   )
 
+
 (require preferred-python-mode)
+(require 'virtualenv)
+
 
 ;;;;;;;;;;;;;;
 ;; pylookup ;;
