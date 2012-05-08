@@ -1,6 +1,8 @@
 (require 'helm-config)
 (require 'helm-misc)
 (require 'helm-tags)
+(require 'helm-semantic)
+(require 'helm-ring)
 
 (defun fg/helm-jump ()
   (interactive)
