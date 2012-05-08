@@ -15,11 +15,10 @@
 (set-default 'ac-sources
              '(ac-source-yasnippet
                ac-source-filename
-               ac-source-files-in-current-dir
-               ac-source-dictionary
+               ac-source-semantic
+               ac-source-semantic-raw
+               ac-source-imenu
                ac-source-words-in-buffer
-               ac-source-words-in-same-mode-buffers))
-
-
+               ))
 
 (provide 'init-auto-complete)
