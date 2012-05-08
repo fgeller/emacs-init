@@ -12,6 +12,7 @@
       org-agenda-include-diary t
       org-agenda-window-setup 'current-window
       org-agenda-files `(,org-directory)
+      org-contacts-files (list (format "%s/contacts.org" org-directory))
       org-fast-tag-selection-single-key 'expert
       org-tags-column 80
       org-default-notes-file (concat org-directory "/Notes.org")
