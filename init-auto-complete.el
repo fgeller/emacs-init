@@ -8,7 +8,6 @@
 (global-auto-complete-mode t)
 
 (setq ac-dwim t) ; To get pop-ups with docs even if a word is uniquely completed
-(setq ac-quick-help-delay 0.1)
 (setq ac-auto-show-menu t)
 (setq ac-stop-flymake-on-completing t)
 
