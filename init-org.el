@@ -83,7 +83,7 @@
 
 
 (setq org-agenda-custom-commands
-      '(("d" . "Completed / archived items")
+      `(("d" . "Completed / archived items")
         ("dt" "[t]oday"
          tags "ARCHIVE_TIME>=\"<today>\""
          ((org-agenda-archives-mode t)))
@@ -97,10 +97,8 @@
          ((org-agenda-mode-hook
            (lambda ()
              (org-mac-iCal)))))
-        ("w" . "Show work related tasks only")
-        ("wt" "[t]odo" tags-todo "+iptego"
-         ((org-agenda-ndays 7)))
-        ("wa" "[a]ll" tags "+iptego")))
+        ("w" "Show work related tasks only" agenda ""
+         ((org-agenda-files ',fg/work-org-agenda-files)))))
 
 (eval-after-load 'org
   '(progn
