@@ -9,7 +9,12 @@
 
 (setq notmuch-saved-searches
       '(("inbox" . "tag:inbox")
-        ("i/inbox" . "tag:i/inbox")))
+        ("i/inbox" . "tag:i/inbox")
+        ("ml/emacs*" . "tag:unread and (tag:ml/emacs-help or tag:ml/emacs-devel)")
+        ("ml/org" . "tag:unread and (tag:ml/org)")
+        ("ml/cedet" . "tag:unread and (tag:ml/cedet-devel)")
+        ("ml/notmuch" . "tag:unread and (tag:ml/notmuch)")
+        ))
 
 (require 'message)
 (setq user-full-name "Felix Geller")
