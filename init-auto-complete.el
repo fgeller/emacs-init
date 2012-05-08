@@ -4,10 +4,11 @@
 (require 'auto-complete)
 (require 'auto-complete-config)
 
+(add-hook 'emacs-lisp-mode-hook 'ac-emacs-lisp-mode-setup)
+(global-auto-complete-mode t)
 
 (setq ac-dwim t) ; To get pop-ups with docs even if a word is uniquely completed
 (setq ac-quick-help-delay 0.1)
-(ac-config-default)
 (setq ac-auto-show-menu t)
 (setq ac-stop-flymake-on-completing t)
 
