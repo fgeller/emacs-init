@@ -69,12 +69,18 @@
 
 
 (setq org-capture-templates
-      '(("t" "Todo"
-     entry (file+headline (concat org-directory "/Tasks.org") "Tasks")
-     "* TODO %?\n\n  %a\n  %i\n")
-    ("d" "Date"
-     entry (file+headline (concat org-directory "/Dates.org") "Calendar")
-     "* %?\n  %t\n  %a\n  %i\n")))
+      `(("t" "Task"
+         entry (file+headline ,fg/org-task-file "Tasks")
+         "* TODO %?\n  SCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"\"))\n\n  %a\n  %i\n")
+        ("w" "Work task"
+         entry (file+headline ,fg/work-org-task-file "Tasks")
+         "* TODO %?\n  SCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"\"))\n\n  %a\n  %i\n")
+        ("c" "Contacts" entry (file "~/Org/contacts.org")
+         "* %(org-contacts-template-name)
+                  :PROPERTIES:
+                  :EMAIL: %(org-contacts-template-email)
+                  :END:")))
+
 
 (setq org-agenda-custom-commands
       '(("d" . "Completed / archived items")
