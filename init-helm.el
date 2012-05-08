@@ -7,12 +7,16 @@
 (defun fg/helm-jump ()
   (interactive)
   (helm-other-buffer
-   '(helm-c-source-buffers-list
-     helm-c-source-bookmarks
+   '(
+     helm-c-source-buffers-list
+;     helm-c-source-global-mark-ring
+     helm-c-source-semantic
+     helm-c-source-ctags
      helm-c-source-recentf
      fg/helm-c-source-file-search
-     helm-c-source-ctags
-     helm-c-source-buffer-not-found)
+     helm-c-source-bookmarks
+     helm-c-source-buffer-not-found
+     )
    "*fg/helm-jump*"))
 
 (defun fg/helm-tag ()
