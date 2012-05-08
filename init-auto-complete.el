@@ -10,6 +10,7 @@
 (setq ac-dwim t) ; To get pop-ups with docs even if a word is uniquely completed
 (setq ac-auto-show-menu t)
 (setq ac-stop-flymake-on-completing t)
+(setq ac-menu-height 0)
 
 (set-default 'ac-sources
              '(ac-source-yasnippet
