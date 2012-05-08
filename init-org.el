@@ -120,5 +120,16 @@
 (add-hook 'org-after-todo-state-change-hook
       'fg/publish-state-entry-state-change-to-gcal)
 
+(setq
+  appt-activate 1
+  appt-message-warning-time 15
+  appt-display-mode-line t
+  appt-display-format 'window)
+
+(setq org-show-notification-handler
+      '(lambda (notification)
+         (todochiku-message "org-mode notification" notification
+                            (todochiku-icon 'emacs))))
+(org-agenda-to-appt)
 
 (provide 'init-org)
