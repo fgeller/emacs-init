@@ -105,6 +105,8 @@
      (require 'org-exp)
      (require 'org-clock)
      (require 'org-checklist)
+     (require 'org-export)
+     (require 'org-contacts)
      ))
 
 (defun fg/publish-state-entry-state-change-to-gcal ()
