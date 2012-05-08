@@ -6,7 +6,7 @@
 (add-hook 'python-mode-hook (lambda ()
                               (setq company-backends '((
                                                        company-keywords
-                                                       company-etags
+                                                       company-semantic
                                                        company-files
                                                        )))
                               (company-mode 1)))
