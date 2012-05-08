@@ -4,11 +4,6 @@
 (require 'auto-complete)
 (require 'auto-complete-config)
 
-;; Key-bindings
-(define-key ac-mode-map (kbd "C-;") 'ac-expand)
-(define-key ac-mode-map (kbd "C-:") 'ac-complete)
-(define-key ac-completing-map (kbd "C-n") 'ac-next)
-(define-key ac-completing-map (kbd "C-p") 'ac-previous)
 
 (setq ac-dwim t) ; To get pop-ups with docs even if a word is uniquely completed
 (setq ac-quick-help-delay 0.1)
