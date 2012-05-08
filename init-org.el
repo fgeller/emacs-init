@@ -19,7 +19,9 @@
       org-hide-emphasis-markers t
       org-hide-leading-stars t
       org-refile-targets '((org-agenda-files :maxlevel . 5))
-      org-src-fontify-natively t)
+      org-src-fontify-natively t
+      org-agenda-remove-tags t
+)
 
 
 ; Refile targets include this file and any file contributing to the agenda - up to 5 levels deep
