@@ -38,6 +38,7 @@
 
 (add-hook 'calendar-mode-hook 'fg/set-monospace-font)
 (add-hook 'notmuch-hello-mode-hook 'fg/set-monospace-font)
+(add-hook 'term-mode-hook 'fg/set-monospace-font)
 
 
 (defun fg/set-varwidth-font ()
