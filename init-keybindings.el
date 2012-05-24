@@ -206,9 +206,9 @@ and so on."
 (define-key js2-mode-map (kbd "C-c s") 'fg/install-reload-browser-on-save-hook)
 
 (define-key message-mode-map (kbd "C-c C-b") 'fg/goto-message-body)
-(define-key notmuch-search-mode-map (kbd "Q") 'fg/quit-untag-inbox-unread)
-(define-key notmuch-search-mode-map (kbd "i") 'fg/notmuch-mark-read)
-(define-key notmuch-search-mode-map (kbd "I") 'fg/notmuch-mark-read-and-drop-inbox-tag)
+(define-key notmuch-search-mode-map (kbd "Q") 'fg/notmuch-archive-all-and-quit)
+(define-key notmuch-search-mode-map (kbd "a") 'fg/notmuch-archive)
+(define-key notmuch-search-mode-map (kbd "g") 'notmuch-search-refresh-view)
 (define-key notmuch-hello-mode-map "g" 'notmuch-hello-update)
 
 (define-key global-map "\C-cl" 'org-store-link)
