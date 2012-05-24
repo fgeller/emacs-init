@@ -10,6 +10,7 @@
 (setq notmuch-saved-searches
       '(("inbox" . "tag:inbox")
         ("i/inbox" . "tag:i/inbox")
+        ("i/commits" . "tag:unread  and tag:i/commits and not \"via pb\"")
         ("ml/emacs*" . "tag:unread and (tag:ml/emacs-help or tag:ml/emacs-devel)")
         ("ml/org" . "tag:unread and (tag:ml/org)")
         ("ml/cedet" . "tag:unread and (tag:ml/cedet-devel)")
