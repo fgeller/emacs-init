@@ -53,20 +53,15 @@
   (if (re-search-forward "sign>" (point-max) t)
       (newline)))
 
-(defun fg/quit-untag-inbox-unread ()
+(defun fg/notmuch-archive-all-and-quit ()
   (interactive)
-  (notmuch-search-operate-all "-unread -inbox -i/inbox")
+  (notmuch-search-tag-all '(("-unread" "-inbox" "-i/inbox")))
   (notmuch-search-quit))
 
-(defun fg/notmuch-mark-read ()
-  (interactive
-   (notmuch-search-operate-all "-unread")
-   (notmuch-search-quit)))
-
-(defun fg/notmuch-mark-read-and-drop-inbox-tag ()
-  (interactive
-   (notmuch-search-operate-all "-unread -inbox -i/inbox")
-   (notmuch-search-quit)))
+(defun fg/notmuch-archive ()
+  (interactive)
+  (notmuch-search-tag '("-unread" "-inbox" "-i/inbox"))
+  (notmuch-search-refresh-view))
 
 ;; use open for PDFs (rather than gv) and images (rather than display)
 (setcdr (assoc 'viewer (cdr (assoc "pdf" (assoc "application"  mailcap-mime-data))))
