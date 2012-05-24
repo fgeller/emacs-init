@@ -30,7 +30,9 @@
  message-sendmail-envelope-from 'header
  mail-envelope-from 'header
  gnus-inhibit-images t
- message-signature "Felix Geller")
+ message-signature "Felix Geller"
+ notmuch-search-line-faces nil
+)
 
 (defun fg/insert-message-sign-pgpmime ()
   (interactive)
