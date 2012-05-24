@@ -52,8 +52,7 @@
   (interactive)
   (variable-pitch-mode t)
   (set-face-attribute 'variable-pitch nil
-                      :family "Menlo" :height 140 :weight 'normal))
-
+                      :family "Ubuntu Mono" :height 160 :weight 'normal))
 
 
 (provide 'init-fonts)
