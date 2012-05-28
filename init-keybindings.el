@@ -203,8 +203,11 @@ and so on."
 (define-key global-map "\C-cc" 'org-capture)
 (define-key global-map "\C-cb" 'org-iswitchb)
 (define-key global-map "\C-c\C-xf" 'org-footnote-action)
-(define-key org-mode-map (kbd "C-c t") 'org-todo)
-(define-key org-agenda-mode-map (kbd "C-c t") 'org-agenda-todo)
+
+(eval-after-load 'org-agenda
+  '(progn
+     (define-key org-mode-map (kbd "C-c t") 'org-todo)
+     (define-key org-agenda-mode-map (kbd "C-c t") 'org-agenda-todo)))
 
 (eval-after-load 'paredit
   '(progn
