@@ -305,6 +305,7 @@ the character typed."
  mode-line-format
  (list
   " "
+  mode-line-mule-info
   mode-line-remote
   '(:eval (propertize "%b" 'face 'mode-line-buffer-id
                       'help-echo (buffer-file-name)))
@@ -360,6 +361,8 @@ the character typed."
                  ","
                  (propertize warn-str 'face 'flymake-warnline)
                  )))))
+  ""
+  mode-line-client
   ))
 
 ;; https://github.com/defunkt/emacs/blob/master/defunkt/defuns.el
