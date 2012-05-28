@@ -48,6 +48,8 @@
   (let ((default-directory (fg/guess-project-root ())))
     (call-interactively 'rgrep)))
 
+(require 'multiple-cursors)
+
 (add-hook 'find-file-hooks 'goto-address-prog-mode)
 (add-hook 'prog-mode-hook (lambda () (setq show-trailing-whitespace t)))
 
