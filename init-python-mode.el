@@ -1,7 +1,3 @@
-;;;;;;;;;;;;;;;;;
-;; python-mode ;;
-;;;;;;;;;;;;;;;;;
-
 (defcustom preferred-python-mode 'python
   "Major python mode to use."
   :type 'symbol
