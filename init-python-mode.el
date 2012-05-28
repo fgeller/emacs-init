@@ -34,7 +34,8 @@
 
 (require preferred-python-mode)
 (require 'virtualenv)
-
+(require 'nose)
+(setq gud-pdb-command-name "ipdb")
 
 ;;;;;;;;;;;;;;
 ;; pylookup ;;
