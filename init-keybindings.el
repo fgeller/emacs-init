@@ -76,8 +76,6 @@ and so on."
 (define-key fg-map "dr"		'ediff-regions-wordwise)
 (define-key fg-map "fn"		'find-name-dired)
 (define-key fg-map "G"		'rgrep)
-(define-key fg-map "gfn"		'flymake-goto-next-error)
-(define-key fg-map "gfp"		'flymake-goto-prev-error)
 (define-key fg-map "if"              'fg/connect-to-freenode)
 (define-key fg-map "ii"              'fg/connect-to-iptego)
 (define-key fg-map "il"              'fg/connect-to-bitlbee)
