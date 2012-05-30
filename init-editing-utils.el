@@ -39,6 +39,7 @@
  )
 
 (require 'multiple-cursors)
+(require 'fastnav)
 
 (add-hook 'find-file-hooks 'goto-address-prog-mode)
 (add-hook 'prog-mode-hook (lambda () (setq show-trailing-whitespace t)))
@@ -418,6 +419,5 @@ count, move that many copies of the character."
 (defun fg/dec-num-at-point ()
   (interactive)
   (fg/change-num-at-point '-))
-
 
 (provide 'init-editing-utils)

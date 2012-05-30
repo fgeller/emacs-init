@@ -201,6 +201,17 @@ and so on."
 (define-key global-map "\C-cc" 'org-capture)
 (define-key global-map "\C-cb" 'org-iswitchb)
 (define-key global-map "\C-c\C-xf" 'org-footnote-action)
+(eval-after-load 'fastnav
+  '(progn
+    (global-set-key (kbd "M-z") 'fastnav-zap-up-to-char-forward)
+    (global-set-key (kbd "M-Z") 'fastnav-zap-up-to-char-backward)
+    (global-set-key (kbd "M-s") 'fastnav-sprint-forward)
+    (global-set-key (kbd "M-S") 'fastnav-sprint-backward)
+    (global-set-key (kbd "M-k") 'fastnav-delete-char-forward)
+    (global-set-key (kbd "M-K") 'fastnav-delete-char-backward)
+    (global-set-key (kbd "M-m") 'fastnav-mark-to-char-forward)
+    (global-set-key (kbd "M-M") 'fastnav-mark-to-char-backward)))
+
 
 (eval-after-load 'org-agenda
   '(progn
