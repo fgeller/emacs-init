@@ -36,6 +36,10 @@ to case differences."
   "Remove trailing whitespace from `STR'."
   (replace-regexp-in-string "[ \t\n]*$" "" str))
 
+(defun fg/find-backward (re-pattern)
+  (save-excursion
+    (re-search-backward re-pattern)
+    (match-string 1)))
 
 ;;----------------------------------------------------------------------------
 ;; Find the directory containing a given library
