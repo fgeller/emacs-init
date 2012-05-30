@@ -196,11 +196,10 @@ and so on."
 (define-key notmuch-search-mode-map (kbd "g") 'notmuch-search-refresh-view)
 (define-key notmuch-hello-mode-map "g" 'notmuch-hello-update)
 
-(define-key global-map "\C-cl" 'org-store-link)
-(define-key global-map "\C-ca" 'org-agenda)
-(define-key global-map "\C-cc" 'org-capture)
-(define-key global-map "\C-cb" 'org-iswitchb)
-(define-key global-map "\C-c\C-xf" 'org-footnote-action)
+(define-key global-map (kbd "C-c l") 'org-store-link)
+(define-key global-map (kbd "C-c a") 'org-agenda)
+(define-key global-map (kbd "C-c c") 'org-capture)
+
 (eval-after-load 'fastnav
   '(progn
     (global-set-key (kbd "M-z") 'fastnav-zap-up-to-char-forward)
