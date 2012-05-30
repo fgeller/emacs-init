@@ -1,12 +1,7 @@
 (load-file "~/.emacs.d/addons/cedet/cedet-devel-load.el")
 (setq semanticdb-default-save-directory "~/.emacs.d/semanticdb")
 
-;; Semantic
-
-;; Add further minor-modes to be enabled by semantic-mode.
-;; See doc-string of `semantic-default-submodes' for other things
-;; you can use here.
-(add-to-list 'semantic-default-submodes 'global-semantic-idle-summary-mode)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Semantic ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (semantic-mode 1)
 
