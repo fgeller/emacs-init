@@ -45,7 +45,6 @@ and so on."
 
 (define-key fg-map "+"		(make-repeatable-command 'fg/inc-num-at-point))
 (define-key fg-map "-"		(make-repeatable-command 'fg/dec-num-at-point))
-(define-key fg-map "A"		'ack)
 (define-key fg-map "aa"		'fg/helm-jump)
 (define-key fg-map "ab"		'helm-browse-code)
 (define-key fg-map "ac"		'fg/helm-contact)
