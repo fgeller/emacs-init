@@ -44,6 +44,8 @@ and so on."
 (key-chord-define-global "uh" 'FG-prefix)
 (fset 'FG-prefix fg-map)
 
+(define-key fg-map "+"		(make-repeatable-command 'fg/inc-num-at-point))
+(define-key fg-map "-"		(make-repeatable-command 'fg/dec-num-at-point))
 (define-key fg-map "A"		'ack)
 (define-key fg-map "aa"		'fg/helm-jump)
 (define-key fg-map "ab"		'helm-browse-code)
