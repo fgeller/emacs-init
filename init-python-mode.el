@@ -33,6 +33,32 @@
 (require 'nose)
 (setq gud-pdb-command-name "ipdb")
 
+;; http://www.masteringemacs.org/articles/2012/05/29/compiling-running-scripts-emacs/
+(defun python-insert-breakpoint ()
+  "Inserts a python breakpoint using `pdb'"
+  (interactive)
+  (back-to-indentation)
+  ;; this preserves the correct indentation in case the line above
+  ;; point is a nested block
+  (split-line)
+  (insert python--pdb-breakpoint-string))
+
+(defvar python--pdb-breakpoint-string "import ipdb; ipdb.set_trace() ## DEBUG ##"
+  "Python breakpoint string used by `python-insert-breakpoint'")
+
+(defadvice compile (before ad-compile-smart activate)
+  "Advises `compile' so it sets the argument COMINT to t
+if breakpoints are present in `python-mode' files"
+  (when (derived-mode-p major-mode 'python-mode)
+    (save-excursion
+      (save-match-data
+        (goto-char (point-min))
+        (if (re-search-forward (concat "^\\s-*" python--pdb-breakpoint-string "$")
+                               (point-max) t)
+            ;; set COMINT argument to `t'.
+            (ad-set-arg 1 t)
+          (message "could not find breakpoint string"))))))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; pylookup ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (setq pylookup-dir "~/.emacs.d/addons/pylookup")
