@@ -76,4 +76,24 @@
 
 (add-hook 'python-mode-hook 'fg/python-mode-initialization)
 
+(defun fg/run-python-test ()
+  (interactive)
+  (let* ((file-name buffer-file-name)
+         (project-root (fg/guess-project-root))
+         (class-name (fg/find-backward "class \\(.+\\)("))
+         (fun-name (fg/find-backward "def \\(test.+\\)("))
+         (cmd (format
+               "cd %s && TESTSEL=%s:%s.%s make tests"
+               project-root
+               file-name
+               class-name
+               fun-name)))
+    (let ((compilation-buffer-name-function (lambda (x) "*tests*")))
+      (compile cmd t))))
+
+(defun fg/re-run-tests ()
+  (interactive)
+  (with-current-buffer "*tests*"
+    (compile compile-command t)))
+
 (provide 'init-python-mode)
