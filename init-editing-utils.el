@@ -364,8 +364,8 @@ This emulates Vim's `dt` behavior, which rocks."
 count, move that many copies of the character."
   (interactive "cchar: \np")
   (when (string= (string c) (buffer-substring (point) (+ 1 (point))))
-    (setq count (+ 1 count)))
-  (and
+    (setq count (+ 1 count))) 
+ (and
    (search-forward (string c) nil t count)
    (> count 0)
    (backward-char)))
