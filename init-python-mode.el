@@ -33,9 +33,8 @@
 (require 'nose)
 (setq gud-pdb-command-name "ipdb")
 
-;;;;;;;;;;;;;;
-;; pylookup ;;
-;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; pylookup ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (setq pylookup-dir "~/.emacs.d/addons/pylookup")
 (eval-when-compile (require 'pylookup))
 (setq pylookup-program (concat pylookup-dir "/pylookup.py"))
@@ -45,9 +44,8 @@
 (autoload 'pylookup-lookup "pylookup" t)
 (autoload 'pylookup-update "pylookup" t)
 
-;;;;;;;;;;;;;
-;; Flymake ;;
-;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Flymake ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (defun flymake-python-init ()
   (let* ((temp-file (flymake-init-create-temp-buffer-copy
                      'flymake-create-temp-intemp))
@@ -59,9 +57,9 @@
 (add-to-list 'flymake-allowed-file-name-masks
              '("\\.py\\'" flymake-python-init))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Buffer local variables and minor modes ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;; Buffer local variables and minor modes ;;;;;;;;;;;;;;;
+
 (defun fg/python-mode-initialization ()
   (setq mode-name
         (if (eq "python-mode" preferred-python-mode)
