@@ -2,11 +2,6 @@
 (require 'unbound)
 (require 'repeat)
 
-(defun fg/eshell-with-prefix ()
-  (interactive)
-  (setq current-prefix-arg '(4))
-  (call-interactively 'eshell))
-
 ;; From http://groups.google.com/group/gnu.emacs.help/browse_thread/thread/44728fda08f1ec8f?hl=en&tvc=2
 (defun make-repeatable-command (cmd)
   "Returns a new command that is a repeatable version of CMD.

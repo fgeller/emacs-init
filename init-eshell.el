@@ -27,7 +27,14 @@
    (fg/eshell-replace-prompt-prefixes)
    "/ "))
 
+(defun fg/eshell-with-prefix ()
+  (interactive)
+  (setq current-prefix-arg '(4))
+  (call-interactively 'eshell))
+
 
 (setq eshell-prompt-function #'fg/eshell-prompt-function)
 (setq eshell-prompt-regexp "^[^\n]*/ ")
+
+
 (provide 'init-eshell)
