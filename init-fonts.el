@@ -51,7 +51,7 @@
   (interactive)
   (variable-pitch-mode t)
   (set-face-attribute 'variable-pitch nil
-                      :family "Ubuntu Mono" :height 180 :weight 'normal))
+                      :family "Consolas" :height 170 :weight 'normal))
 
 
 (provide 'init-fonts)
