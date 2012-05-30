@@ -212,6 +212,11 @@ and so on."
     (global-set-key (kbd "M-m") 'fastnav-mark-to-char-forward)
     (global-set-key (kbd "M-M") 'fastnav-mark-to-char-backward)))
 
+(eval-after-load 'python
+  '(progn
+     (define-key python-mode-map (kbd "C-c t") 'fg/run-python-test)
+     (define-key python-mode-map (kbd "C-c r") 'fg/re-run-tests)
+     (define-key python-mode-map (kbd "C-c b") 'python-insert-breakpoint)))
 
 (eval-after-load 'org-agenda
   '(progn
