@@ -46,6 +46,9 @@
  org-irc-link-to-logs t
 )
 
+(eval-after-load 'org-mode
+  '(progn
+     (require 'org-contacts)))
 
 ;; hooks
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
