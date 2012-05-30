@@ -261,24 +261,11 @@ the character typed."
 (wrap-region-add-wrapper "{" "}")
 
 (require 'highlight-indentation)
-
 (require 'compile+)
-
 (require 'rebox2)
 (require 'line-comment-banner)
-
 (require 'enclose)
-
 (autoload 'camelCase-mode "camelCase-mode" nil t)
-
-(require 'ace-jump-mode)
-
-(require 'saaxy)
-(setq saaxy-prompt (propertize "> " 'font-lock-face `(:foreground "#2075c7")))
-(defun color-for (str)
-  "#259185")
-
-(require 'jumper)
 
 
 ;; http://emacs-fu.blogspot.com/2011/08/customizing-mode-line.html
