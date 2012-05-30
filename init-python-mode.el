@@ -94,6 +94,7 @@ if breakpoints are present in `python-mode' files"
   (wrap-region-mode 1)
   (camelCase-mode 1)
   (jumper-mode 1)
+  (pretty-symbols-mode 1)
   ;; flymake
   (unless (eq buffer-file-name nil)
     (flymake-mode 1))

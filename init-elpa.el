@@ -15,6 +15,7 @@
         (require-package package min-version t)))))
 
 
+(require-package 'pretty-symbols-mode)
 (require-package 'bookmark+)
 (require-package 'json)
 (require-package 'js-comint)
