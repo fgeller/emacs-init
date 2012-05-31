@@ -1,3 +1,4 @@
+(add-to-list 'same-window-regexps ".*")
 
 ;;----------------------------------------------------------------------------
 ;; When splitting window, show (other-buffer) in the new window
