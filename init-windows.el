@@ -1,11 +1,3 @@
-(require 'winring)
-(winring-initialize)
-
-;;----------------------------------------------------------------------------
-;; Navigate window layouts with "C-c <left>" and "C-c <right>"
-;;----------------------------------------------------------------------------
-(winner-mode 1)
-
 
 ;;----------------------------------------------------------------------------
 ;; When splitting window, show (other-buffer) in the new window
