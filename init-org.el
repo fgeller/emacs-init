@@ -46,7 +46,7 @@
  org-irc-link-to-logs t
 )
 
-(eval-after-load 'org-mode
+(eval-after-load 'org
   '(progn
      (require 'org-contacts)))
 
